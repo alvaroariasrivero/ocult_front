@@ -1,7 +1,15 @@
 import React from "react";
+import {Routes, Route} from 'react-router-dom';
+import Home from '../Home';
+import Quiz from '../Quiz';
+import Login from '../Login';
 
 const Main = () => {
-  return <div>Main</div>;
+  return <Routes>
+    <Route path='/' element={<Home/>}/>
+    <Route path='/quiz' element={<Quiz/>}/>
+    <Route path='/login' element={<Login/>}/>
+  </Routes>;
 };
 
 export default Main;
