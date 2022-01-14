@@ -19,7 +19,7 @@ function App() {
         const array = json.results
         const questionsArray = array.map(element => {
           return{
-            'question': element.question,
+            'question_text': element.question,
             'answers': [
               element.correct_answer,
               element.incorrect_answers[0],
