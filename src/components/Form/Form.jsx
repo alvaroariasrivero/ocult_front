@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './Form.css'
 // import Header from './components/Header';
 // import Footer from './components/Footer';
 
@@ -41,20 +42,21 @@ const Form = () => {
   }
 
     return (
-      <div className="form">
+      <div className="div_form">
         {/* <Header/> */}
+        {/* <img src='' alt=''/> */}
         <form id="form" onSubmit={handleSubmit}>
-          <label htmlFor="id_company"> ID Empresa:</label><br />
-          <input type="text" id="id_company" name="id_company"  /><br />
-          <label htmlFor="name"> Elige un nombre de Usuario:</label><br />
-          <input type="text" id="name" name="name" /><br />
-          <label htmlFor="email">Email:</label><br />
-          <input type="email" id="email" name="email"/><br />
-          <label htmlFor="password">Elige una contraseña:</label><br />
-          <input type="text" id="password" name="password"  /><br />
+          <label htmlFor="id_company" > </label><br />
+          <input className='input' type="text" id="id_company" name="id_company" value="Id Empresa" /><br />
+          <label className='input' htmlFor="email"></label><br />
+          <input className='input' type="email" id="email" name="email" value="Correo electronico"/><br />
+          <label htmlFor="name"> </label><br />
+          <input className='input' type="text" id="name" name="name" value="Elige nombre de Usuario" /><br />
+          <label htmlFor="password"></label><br />
+          <input className='input' type="text" id="password" name="password" value="Elige una contraseña" /><br />
           <br>
           </br>
-          <button>Acceder</button>
+          <button className='access_btn'>Acceder</button>
         </form>
         {/* <Footer/> */}
       </div>
