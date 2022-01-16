@@ -19,7 +19,7 @@ const Profile = () => {
         <img className="userImg" />
         <div className="userPersonalData">
           <h2>Pablo Sans</h2>
-          <p>ID Empresa: xxxxxxx</p>
+          <p>Empresa: The Bridge</p>
           <p>PRINCIPIANTE</p>
           <img src="../assets/icons/user_level.png" alt="userLevel" />
         </div>
@@ -38,7 +38,6 @@ const Profile = () => {
         <img src="../assets/icons/graph_3.png" className="userGraph" alt="userGraph"/>
         <img src="../assets/icons/graph_4.png" className="userGraph" alt="userGraph"/>
         <img src="../assets/icons/graph_5.png" className="userGraph" alt="userGraph"/>
-
       </div>
 
       <div className="userBot">
