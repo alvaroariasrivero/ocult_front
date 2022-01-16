@@ -1,8 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import './Profile.css'
 import { NavLink } from 'react-router-dom';
+import axios from "axios";
+
 
 const Profile = () => {
+  const [userData, setUserData] = useState({}); 
+
+  // useEffect(() => {
+  // async function getUser() {
+  //   try {
+  //       axios.get('http://localhost:5000/api/profile/${user_id}').then((allData) => {
+  //         setUserData(allData.data)
+  //       })
+  //     }catch (e) {
+  //       setUserData([])
+  //     console.log("We had an error loading the data")
+  //   }
+  // }},[user_id])
+
   return <div className="userDashboardContainer">
     <aside className="asideNav">
       <ul className="aside">
