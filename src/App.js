@@ -1,5 +1,6 @@
 import React, {useState, useEffect } from "react";
 import { BrowserRouter } from 'react-router-dom';
+import {questionContext} from './context/questionContext';
 import Main from './components/Main';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -21,9 +22,9 @@ function App() {
             'question': element.question,
             'answers': [
               element.correct_answer,
-              element.incorrect_answer[0],
-              element.incorrect_answer[1],
-              element.incorrect_answer[2]
+              element.incorrect_answers[0],
+              element.incorrect_answers[1],
+              element.incorrect_answers[2]
             ]
           };
         })
@@ -33,12 +34,18 @@ function App() {
       }
     };
     fetchQuestion();
-  })
+  }, [])
+
+  const queObj = {
+    questions
+  }
   return (
     <div className="App">
       <BrowserRouter>
         <Header/>
-        <Main/>
+        <questionContext.Provider value={queObj}>
+          <Main/>
+        </questionContext.Provider>
         <Footer/>
       </BrowserRouter>
     </div>
