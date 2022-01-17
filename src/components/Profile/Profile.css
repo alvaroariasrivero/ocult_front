@@ -1,0 +1,144 @@
+/* General container */
+.userDashboardContainer{
+    background-color: #E5E5E5;
+    display:flex;
+    justify-content: flex-start;
+}
+
+/* Lateral menu */
+.asideNav{
+    height: 100vh;
+    padding:0;
+    margin: 0;
+    color: #696F79  
+}
+
+ul.aside > li{
+    list-style: none;
+    margin-bottom: 17%;
+    padding-top: 10%;
+    width: 271px;
+    height: 44px;
+    left: 313px;
+    top: 147px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+a{
+    margin-left: 10%;
+}
+
+.userDashboardData{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.userImg{
+    width: 96px;
+    height: 96px;
+    left: 640px;
+    top: 186px;
+    background: url("../../../public/assets/icons/user_avatar.png"), #FFFFFF;
+    box-shadow: 0px 15px 40px 5px #EDEDED;
+    border-radius: 179px;
+    background-position: center;
+}
+
+.userData {
+    width: 467px;
+    height: 173px;
+    left: 612px;
+    top: 147px;
+    background: #FFFFFF;
+    box-shadow: 0px 15px 40px 5px #EDEDED;
+    border-radius: 16px;
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.userPersonalData{
+ text-align: left;
+}
+
+.userRecomendation {
+    width: 497px;
+    height: 173px;
+    left: 1107px;
+    top: 146px;
+    background: #0070AD;
+    box-shadow: 0px 15px 40px 5px #EDEDED;
+    border-radius: 16px;
+    color: white;
+}
+
+img.recomendation{
+    left: 59.11%;
+    right: 35.89%;
+    top: 18.16%;
+    bottom: 72.46%;
+}
+
+.userGraph {
+    width: 1200px;
+    height: 293px;
+    left: 606px;
+    top: 348px;
+    background: #FFFFFF;
+    box-shadow: 0px 15px 40px 5px #EDEDED;
+    border-radius: 16px;
+}
+
+img.userGraph{
+    width: 142px;
+    height: 177px;
+    left: 638px;
+    top: 436px;
+    margin-left: 18px;
+}
+
+
+.userBot {
+    width: 480px;
+    height: 309px;
+    left: 609px;
+    top: 669px;
+    background: #DCEEF9;
+    border: 1px solid #BEE8FF;
+    box-sizing: border-box;
+    box-shadow: 0px 15px 40px 5px #EDEDED;
+    border-radius: 16px;
+}
+
+
+.userQuizes {
+    width: 497px;
+    height: 309px;
+    left: 1107px;
+    top: 669px; 
+    background: #FFFFFF;
+    box-shadow: 0px 15px 40px 5px #EDEDED;
+    border-radius: 16px;   
+}
+
+.quizes {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: space-between;
+}
+
+img.quiz{
+    width: 212px;
+    height: 102px;
+    left: 1136px;
+    top: 732px;
+    box-shadow: 0px 15px 40px 5px #EDEDED;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
