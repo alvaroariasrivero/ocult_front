@@ -7,10 +7,15 @@
    justify-content: center;
 }
 
+.div_form{
+    display: flex;
+    justify-content: center;
+    align-content: row;
+}
 #form {
     background-color: white;
     align-items: center;
-    border: 1px grey;
+    border: 1px rgb(192, 189, 189);
     border-radius: 16px ;
     box-shadow: black;
     padding: 15px 30px 30px 15px;

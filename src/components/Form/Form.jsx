@@ -44,19 +44,18 @@ const Form = () => {
     return (
       <div className="div_form">
         {/* <Header/> */}
-        {/* <img src='' alt=''/> */}
+        <img src='../../public/logoOcult' alt=''/>
         <form id="form" onSubmit={handleSubmit}>
-          <label htmlFor="id_company" > </label><br />
-          <input className='input' type="text" id="id_company" name="id_company" value="Id Empresa" /><br />
-          <label className='input' htmlFor="email"></label><br />
-          <input className='input' type="email" id="email" name="email" value="Correo electronico"/><br />
-          <label htmlFor="name"> </label><br />
-          <input className='input' type="text" id="name" name="name" value="Elige nombre de Usuario" /><br />
-          <label htmlFor="password"></label><br />
-          <input className='input' type="text" id="password" name="password" value="Elige una contraseña" /><br />
-          <br>
-          </br>
-          <button className='access_btn'>Acceder</button>
+          <div className='div_input'>
+            <input className='input' type="text" id="id_company" name="id_company" placeholder='Id Empresa' />
+            <input className='input' type="email" id="email" name="email" placeholder="Correo electronico"/>
+            <input className='input' type="text" id="name" name="name" placeholder="Elige nombre de Usuario" />
+            <input className='input' type="password" id="password" name="password" placeholder="Elige una contraseña" />
+          </div>
+          <div className='div_btn'>
+            <button className='access_btn'>Acceder</button>
+          </div>
+          
         </form>
         {/* <Footer/> */}
       </div>
