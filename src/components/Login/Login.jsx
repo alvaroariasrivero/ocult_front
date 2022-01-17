@@ -35,19 +35,15 @@ const Login = () => {
 
   return (
     <div className="div_form">
-
       <form id="form" onSubmit={handleSubmit} method="post" action='/api/signup'>
-
-        <label className='input' htmlFor="email"></label><br />
-        <input className='input' type="email" id="email" name="email" placeholder="Correo electronico" value={userData.email} onChange={(e) => setUserData({ ...userData, email: e.target.value })}/><br />
-
-        <label htmlFor="password"></label><br />
-        <input className='input' type="text" id="password" name="password" placeholder="Contraseña" value={userData.password} onChange={(e) => setUserData({ ...userData, password: e.target.value })}/><br />
+        <br />
+        <input className='input' type="email" id="email" name="email" placeholder="Correo electronico" value={userData.email} onChange={(e) => setUserData({ ...userData, email: e.target.value })} /><br />
+        <br />
+        <input className='input' type="password" id="password" name="password" placeholder="Contraseña" value={userData.password} onChange={(e) => setUserData({ ...userData, password: e.target.value })} /><br />
         <br>
         </br>
-        <input className='access_btn' type="submit" value="Acceder"/>
+        <input className='access_btn' type="submit" value="Acceder" />
       </form>
-      
       {formErrors}
 
     </div>

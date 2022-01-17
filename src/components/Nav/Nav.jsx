@@ -10,8 +10,6 @@ const Nav = () => {
       <li><Link to='/profile'>Profile</Link></li>
       <li><Link to='/form'>Nuevo usuario</Link></li>
       <li><Link to='/login'>Empleado</Link></li>
-
-
     </ul>
   </nav>;
 };

@@ -22,10 +22,10 @@ const Form = () => {
       if (!userData.id_company || !userData.username || !userData.email || !userData.password) {
         setFormErrors(...formErrors, "Debes completar todos los campos")
       }
-      else if(userData.password.length < 6) {
+      else if (userData.password.length < 6) {
         setFormErrors(...formErrors, "La contraseña tiene que tener al menos 6 dígitos")
-      } 
-      else if(userData.id_company && userData.username && userData.email && userData.password){
+      }
+      else if (userData.id_company && userData.username && userData.email && userData.password) {
         try {
           let req = {
             method: "POST",
@@ -42,27 +42,24 @@ const Form = () => {
     } catch (error) {
       console.log(error)
     }
-  }  
+  }
   return (
     <div className="div_form">
 
       <form id="form" onSubmit={handleSubmit} method="post" action='/api/signup'>
-        <label htmlFor="id_company" > </label><br />
+        <br />
         <input className='input' type="text" id="id_company" name="id_company" placeholder="ID de empresa" value={userData.id_company} onChange={(e) => setUserData({ ...userData, id_company: e.target.value })} /><br />
-
-        <label className='input' htmlFor="email"></label><br />
-        <input className='input' type="email" id="email" name="email" placeholder="Correo electronico" value={userData.email} onChange={(e) => setUserData({ ...userData, email: e.target.value })}/><br />
-
-        <label htmlFor="username"> </label><br />
-        <input className='input' type="text" id="username" name="username" placeholder="Nombre" value={userData.username} onChange={(e) => setUserData({ ...userData, username: e.target.value })}/><br />
-
-        <label htmlFor="password"></label><br />
-        <input className='input' type="text" id="password" name="password" placeholder="Contraseña" value={userData.password} onChange={(e) => setUserData({ ...userData, password: e.target.value })}/><br />
+        <br />
+        <input className='input' type="email" id="email" name="email" placeholder="Correo electronico" value={userData.email} onChange={(e) => setUserData({ ...userData, email: e.target.value })} /><br />
+        <br />
+        <input className='input' type="text" id="username" name="username" placeholder="Nombre" value={userData.username} onChange={(e) => setUserData({ ...userData, username: e.target.value })} /><br />
+        <br />
+        <input className='input' type="password" id="password" name="password" placeholder="Contraseña" value={userData.password} onChange={(e) => setUserData({ ...userData, password: e.target.value })} /><br />
         <br>
         </br>
-        <input className='access_btn' type="submit" value="Acceder"/>
+        <input className='access_btn' type="submit" value="Acceder" />
       </form>
-      
+
       {formErrors}
 
     </div>
