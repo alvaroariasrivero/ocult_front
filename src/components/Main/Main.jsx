@@ -6,6 +6,7 @@ import Login from '../Login';
 import Profile from '../Profile';
 import Placeholder from '../Placeholder';
 import Form from '../Form';
+import Chatbot from '../Chatbot';
 
 
 const Main = () => {
@@ -16,6 +17,7 @@ const Main = () => {
     <Route path='/placeholder' element={<Placeholder/>}/>
     <Route path='/form' element={<Form/>}/>
     <Route path='/login' element={<Login/>}/>
+    <Route path='/chatbot' element={<Chatbot/>}/>
 
 
   </Routes>;
