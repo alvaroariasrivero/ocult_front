@@ -4,10 +4,10 @@ import Card from '../Card';
 
 const Quiz = () => {
 
-  const {questions} = useContext(questionContext);
+  const {currentQuestions} = useContext(questionContext);
 
   const paintCards = () => {
-    return questions.map((item, i) => <Card question={item} key={i}/> )
+    return currentQuestions.map((item, i) => <Card question={item} key={i}/> )
   }
   return <div>{paintCards()}</div>;
 };
