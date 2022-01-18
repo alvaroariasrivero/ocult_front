@@ -7,6 +7,7 @@ import Profile from '../Profile';
 import Placeholder from '../Placeholder';
 import Form from '../Form';
 import Chatbot from '../Chatbot';
+import Dashboard from "../Dashboard/Dashboard";
 
 
 const Main = () => {
@@ -18,6 +19,7 @@ const Main = () => {
     <Route path='/form' element={<Form/>}/>
     <Route path='/login' element={<Login/>}/>
     <Route path='/chatbot' element={<Chatbot/>}/>
+    <Route path='/dashboard' element={<Dashboard/>}/>
 
 
   </Routes>;

@@ -33,6 +33,7 @@ const Chatbot = () => {
       message: 'Voy a buscar toda la información necesaria para poder ayudarte. Dame un segundo!',
       end: true,
     },
+    
   ];
   
  
