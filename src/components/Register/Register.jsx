@@ -25,7 +25,7 @@ const Register = (props) => {
     if (!value) {
       return (
         <div className="alert" role="alert">
-          This field is required!
+          ¡Debes completar todos los campos!
         </div>
       );
     }
@@ -35,17 +35,17 @@ const Register = (props) => {
     if (!isEmail(value)) {
       return (
         <div className="alert alert-danger" role="alert">
-          This is not a valid email.
+          Debe ser un correo válido.
         </div>
       );
     }
   };
 
   const vpassword = (value) => {
-    if (value.length < 6 || value.length > 40) {
+    if (value.length < 10 || value.length > 40) {
       return (
         <div className="alert alert-danger" role="alert">
-          The password must be between 6 and 40 characters.
+          La contraseña debe tener al menos 10 caracteres.
         </div>
       );
     }
@@ -86,7 +86,6 @@ const Register = (props) => {
         (response) => {
           setMessage(response.data.message);
           setSuccessful(true);
-          // Rerirect a Login 
           navigate(`/login`);
         },
         (error) => {
