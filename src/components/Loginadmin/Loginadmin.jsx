@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 
-const Login = () => {
+const Loginadmin = () => {
   const [userData, setUserData] = useState({
     "email": "",
     "password": "",
@@ -39,7 +39,7 @@ const Login = () => {
   </div><> {formErrors}</><div className="div_form">
 
       <form id="form" onSubmit={handleSubmit} method="post" action='/api/signup'>
-      <h2>Empleado</h2>
+        <h2>Responsable</h2>
         <br />
         <input className='input' type="email" id="email" name="email" placeholder="Correo electronico" value={userData.email} onChange={(e) => setUserData({ ...userData, email: e.target.value })} /><br />
         <br />
@@ -47,11 +47,9 @@ const Login = () => {
         <br>
         </br>
         <input className='access_btn' type="submit" value="Acceder" />
-        <Link to="/form">¿No tienes cuenta? Registrate</Link>
-
       </form>
 
     </div></>
   );
 }
-export default Login;
+export default Loginadmin;

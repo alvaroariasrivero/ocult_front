@@ -44,9 +44,11 @@ const Form = () => {
     }
   }
   return (
+    <div className="container">
     <div className="div_form">
-
+      <img src="../assets/icons/LogoLightOcult.png" alt="logoOcult" className='logoForm' />
       <form id="form" onSubmit={handleSubmit} method="post" action='/api/signup'>
+        <h2>Registrate</h2>
         <br />
         <input className='input' type="text" id="id_company" name="id_company" placeholder="ID de empresa" value={userData.id_company} onChange={(e) => setUserData({ ...userData, id_company: e.target.value })} /><br />
         <br />
@@ -58,10 +60,13 @@ const Form = () => {
         <br>
         </br>
         <input className='access_btn' type="submit" value="Acceder" />
+        <p className='idinfo'>El id de tu empresa debe ser proporcionado por tu responsable</p>
+
       </form>
 
       {formErrors}
 
+    </div>
     </div>
   );
 }

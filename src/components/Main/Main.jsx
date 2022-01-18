@@ -3,6 +3,7 @@ import {Routes, Route} from 'react-router-dom';
 import Home from '../Home';
 import Quiz from '../Quiz';
 import Login from '../Login';
+import Loginadmin from '../Loginadmin';
 import Profile from '../Profile';
 import Placeholder from '../Placeholder';
 import Form from '../Form';
@@ -16,6 +17,8 @@ const Main = () => {
     <Route path='/placeholder' element={<Placeholder/>}/>
     <Route path='/form' element={<Form/>}/>
     <Route path='/login' element={<Login/>}/>
+    <Route path='/loginadmin' element={<Loginadmin/>}/>
+
 
 
   </Routes>;
