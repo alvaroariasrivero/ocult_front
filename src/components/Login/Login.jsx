@@ -12,7 +12,6 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(userData);
-    try {
       if (!userData.email || !userData.password) {
         setFormErrors(...formErrors, "Debes completar todos los campos")
       }else{
@@ -25,15 +24,22 @@ const Login = () => {
             body: JSON.stringify(userData)
           }
           await fetch('http://localhost:5000/api/login', req)
+          .then((response) => {
+            if (response.data.accessToken) {
+              localStorage.setItem("user", JSON.stringify(response.data));
+            }
+      
+            return response.data;
+          })
         } catch (err) {
           console.log(err)
         }
       }
-    } catch (error) {
-      console.log(error)
-    }
   }  
-
+  const logout = () => {
+    localStorage.removeItem("user");
+  };
+  
   return (<><div>
 
   </div><> {formErrors}</><div className="div_form">
