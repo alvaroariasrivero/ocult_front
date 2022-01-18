@@ -1,63 +1,118 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import {Link} from 'react-router-dom';
+import React, { useState, useRef } from "react";
+import Form from "react-validation/build/form";
+import Input from "react-validation/build/input";
+import CheckButton from "react-validation/build/button";
+import AuthService from "../../services/authservice";
+import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
-const Login = () => {
-  const [userData, setUserData] = useState({
-    "email": "",
-    "password": "",
-  });
-  const [formErrors, setFormErrors] = useState([])
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    console.log(userData);
-      if (!userData.email || !userData.password) {
-        setFormErrors(...formErrors, "Debes completar todos los campos")
-      }else{
-        try {
-          let req = {
-            method: "POST",
-            headers: {
-              'Content-type': 'application/json'
-            },
-            body: JSON.stringify(userData)
-          }
-          await fetch('http://localhost:5000/api/login', req)
-          .then((response) => {
-            if (response.data.accessToken) {
-              localStorage.setItem("user", JSON.stringify(response.data));
-            }
-      
-            return response.data;
-          })
-        } catch (err) {
-          console.log(err)
-        }
-      }
-  }  
-  const logout = () => {
-    localStorage.removeItem("user");
+const Login = (props) => {
+
+  const form = useRef();
+  const checkBtn = useRef();
+
+  const [mail, setMail] = useState("");
+  const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
+
+  let navigate = useNavigate();
+
+  const onChangeMail = (e) => {
+    const mail = e.target.value;
+    setMail(mail);
   };
-  
-  return (<><div>
 
-  </div><> {formErrors}</><div className="div_form">
+  const onChangePassword = (e) => {
+    const password = e.target.value;
+    setPassword(password);
+  };
 
-      <form id="form" onSubmit={handleSubmit} method="post" action='/api/signup'>
-      <h2>Empleado</h2>
-        <br />
-        <input className='input' type="email" id="email" name="email" placeholder="Correo electronico" value={userData.email} onChange={(e) => setUserData({ ...userData, email: e.target.value })} /><br />
-        <br />
-        <input className='input' type="password" id="password" name="password" placeholder="Contraseña" value={userData.password} onChange={(e) => setUserData({ ...userData, password: e.target.value })} /><br />
-        <br>
-        </br>
-        <input className='access_btn' type="submit" value="Acceder" />
-        <Link to="/form">¿No tienes cuenta? Registrate</Link>
+  const required = (value) => {
+    if (!value) {
+      return (
+        <div className="alert alert-danger" role="alert">
+          This field is required!
+        </div>
+      );
+    }
+  };
 
-      </form>
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-    </div></>
-  );
+    setMessage("");
+
+    form.current.validateAll();
+
+    if (checkBtn.current.context._errors.length === 0) {
+      AuthService.login(mail, password).then(
+        () => {
+          navigate(`/profile`);
+      
+        },
+        (error) => {
+          const resMessage =
+            (error.response &&
+              error.response.data &&
+              error.response.data.message) ||
+            error.message ||
+            error.toString();
+
+          setMessage(resMessage);
+        }
+      );
+    } else {
+      console.log("Hemos tenido un error")
+    }
+  };
+
+  return <div className="container">
+
+    <div className="div_form">
+      <img src="../assets/icons/LogoLightOcult.png" alt="logoOcult" className='logoForm' />
+
+      <Form onSubmit={handleSubmit} ref={form}>
+        <div className="form-group">
+          <label htmlFor="mail">Email</label>
+          <Input
+            type="text"
+            className="form-control"
+            name="mail"
+            value={mail}
+            onChange={onChangeMail}
+            validations={[required]}
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="password">Password</label>
+          <Input
+            type="password"
+            className="form-control"
+            name="password"
+            value={password}
+            onChange={onChangePassword}
+            validations={[required]}
+          />
+        </div>
+
+        <div className="form-group">
+          <button className="btn btn-primary btn-block">Login</button>
+        </div>
+
+        {message && (
+          <div className="form-group">
+            <div className="alert" role="alert">
+              {message}
+            </div>
+          </div>
+        )}
+        <CheckButton style={{ display: "none" }} ref={checkBtn} />
+        <Link to="/register">¿No tienes cuenta? Registrate</Link>
+      </Form>
+
+    </div>
+  </div>
 }
 export default Login;

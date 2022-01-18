@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import './Profile.css'
 import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
 import axios from "axios";
 
 
@@ -23,7 +25,7 @@ const Profile = () => {
     <aside className="asideNav">
       <ul className="aside">
         <li><img src="../assets/icons/aside_support.png" alt="icon" /><NavLink to='/placeholder'>Recursos</NavLink></li>
-        <li><img src="../assets/icons/aside_notification.png" alt="icon" /><NavLink to='/placeholder'>Chatbot</NavLink></li>
+        <li><img src="../assets/icons/aside_notification.png" alt="icon" /><NavLink to='/chatbot'>Chatbot</NavLink></li>
         <li><img src="../assets/icons/aside_notification.png" alt="icon" /><NavLink to='/placeholder'>Configuración</NavLink></li>
         <li><img src="../assets/icons/aside_notification.png" alt="icon" /><NavLink to='/placeholder'>Ayuda</NavLink></li>
       </ul>
@@ -71,7 +73,8 @@ const Profile = () => {
           <p>¿Puedes comprobarme una URL? ¿Qué contraseña es más segura?</p>
           <p>Pregunta todas tus dudas a nuestro Chatbot</p>
           <img src="../assets/icons/bot_robot.png" className="robot" alt="ChatBot" />
-          <input type="button" value="Accede aqui" />
+          <Link to="/chatbot">Haz click aquí para comenzar</Link>
+
         </div>
         {/* Contenedor listado Quizes*/}
         <div className="userQuizes">
