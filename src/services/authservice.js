@@ -1,3 +1,4 @@
+import jwt from 'jwt-decode'
 import axios from "axios";
 const API_URL = "http://localhost:5000/api/";
 
@@ -22,42 +23,14 @@ const register = async (id_company, username, email, password) => {
     }
 };
 
-// const login = async (email, password) => {
-//     try {
-//         let req = {
-//             method: "POST",
-//             headers: {
-//                 'Content-type': 'application/json'
-//             },
-//             body: JSON.stringify({
-//                 email, 
-//                 password,
-//               })
-//         }
-//         return await fetch(API_URL + 'login', req)
-//             .then((response) => {
-//                 // if (response.data.accesToken) {
-//                 //     console.log(response.data.accesToken)
-//                 //     localStorage.setItem("user", JSON.stringify(response.data));
-//                 // }
-//                 // return response.data;
-//                 console.log(response.data.accesToken)
-
-//             });
-//     } catch (err) {
-//         console.log(err)
-//     }
-// }
-
 const login = async (mail, password) => {
-    console.log("**********")
     const response = await axios
     .post(API_URL + "login", {
         mail,
         password,
     });
     console.log(response)
-    if (response.data.accessToken) {
+    if (response.data) {
         localStorage.setItem("user", JSON.stringify(response.data));
     }
     return response.data;
@@ -69,7 +42,9 @@ const logout = () => {
 };
 
 const getCurrentUser = () => {
-    return JSON.parse(localStorage.getItem("user"));
+    const token = localStorage.getItem("user");
+    const userDecoded = jwt(token)
+    return userDecoded
 };
 
 
