@@ -3,6 +3,7 @@ import {questionContext} from '../../context/questionContext';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import AuthService from '../../services/authservice';
+const API_URL = "http://localhost:5000/api/";
 
 const Card = ({question}) => {
 
@@ -27,17 +28,28 @@ const Card = ({question}) => {
     setShowButton(true)
   }
 
-  const sendScore = async () => {
+
+
+  const sendScore = async (score, userEmail) => {
     try {
-      let res = await axios.post('http://localhost:5000/api/score', score);
-      console.log('Entro', res)
-      let data = res.data;
-      console.log(data);
+      let req = {
+        method: "POST",
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify({
+          score,
+          userEmail
+        })
+      }
+      await fetch ('http://localhost:5000/api/score', req);
       navigate('/profile');
     } catch (error) {
       console.log('error', error);
     } 
   }
+
+  console.log('Esto', userEmail, score)
 
   const renderNextButton = () => {
     if(showButton){
@@ -76,7 +88,7 @@ const Card = ({question}) => {
                 <a href="https://transparencyreport.google.com/safe-browsing/search?hl=es" target="_blank">Google - Estado del sitio según Navegación segura</a>
               </div>
               <div>
-                <button onClick={sendScore}>Enviar puntuación</button>
+                <button onClick={()=>sendScore(score, userEmail)}>Enviar puntuación</button>
               </div>
             </div>
       }else{
@@ -97,7 +109,7 @@ const Card = ({question}) => {
                 <a href="https://transparencyreport.google.com/safe-browsing/search?hl=es">Google - Estado del sitio según Navegación segura</a>
               </div>
               <div>
-                <button onClick={sendScore}>Enviar puntuación</button>
+                <button onClick={()=> sendScore(score, userEmail)}>Enviar puntuación</button>
                 <button>Obtener certificado</button>
               </div>
             </div>
