@@ -8,6 +8,7 @@ import Placeholder from '../Placeholder';
 import Form from '../Form';
 import Chatbot from '../Chatbot';
 import Dashboard from "../Dashboard/Dashboard";
+import Prequiz from "../Prequiz/Prequiz";
 
 
 const Main = () => {
@@ -20,6 +21,7 @@ const Main = () => {
     <Route path='/login' element={<Login/>}/>
     <Route path='/chatbot' element={<Chatbot/>}/>
     <Route path='/dashboard' element={<Dashboard/>}/>
+    <Route path='/prequiz' element={<Prequiz/>}/>
 
 
   </Routes>;

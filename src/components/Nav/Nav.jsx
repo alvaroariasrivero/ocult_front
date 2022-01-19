@@ -12,6 +12,7 @@ const Nav = () => {
       <li><Link to='/login'>Empleado</Link></li>
       <li><Link to='/chatbot'>Chatbot</Link></li>
       <li><Link to='/dashboard'>Administrador</Link></li>
+      <li><Link to='/prequiz'>Prequiz</Link></li>
     </ul>
   </nav>;
 };
