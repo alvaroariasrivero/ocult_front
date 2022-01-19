@@ -1,6 +1,53 @@
 .div_container_prequiz {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+   
+    
+}
+.div_welcome_prequiz{
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #0070AD;
+    align-content: stretch;
+    align-items: flex-start;
+    border-left: 4px #0070AD solid;
+    border-radius: 2px;
+    margin: 15px 60px;
+    
+}
+.div_text_prequiz{
+    font-weight: bold;
+    display: flex;
     flex-direction: row;
     justify-content: center;
-    
+    align-items: center;
+    color: #0070AD;
+ 
+}
+
+.div_imag_prequiz{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.img_prequiz{
+    width: 8%;
+
+}
+p {
+    margin-left: 15px;
+    font-size: 10px;
+}
+
+.btn_prequiz {
+    font-size: 1rem;
+    background-color: #F4F4F4;
+    color: #0070AD;
+    border: 1px solid #0070AD;
+    border-radius: 5px;
+    padding: 1rem 3rem;
 }
