@@ -41,7 +41,7 @@ const Loginadmin = () => {
       <form id="form" onSubmit={handleSubmit} method="post" action='/api/signup'>
         <h2>Responsable</h2>
         <br />
-        <input className='input' type="email" id="email" name="email" placeholder="Correo electronico" value={userData.email} onChange={(e) => setUserData({ ...userData, email: e.target.value })} /><br />
+        <input className='input' type="email" id="email" name="email" placeholder="Correo electrónico" value={userData.email} onChange={(e) => setUserData({ ...userData, email: e.target.value })} /><br />
         <br />
         <input className='input' type="password" id="password" name="password" placeholder="Contraseña" value={userData.password} onChange={(e) => setUserData({ ...userData, password: e.target.value })} /><br />
         <br>
