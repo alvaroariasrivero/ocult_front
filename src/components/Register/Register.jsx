@@ -4,11 +4,11 @@ import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import { isEmail } from "validator";
-import AuthService from "../../services/authservice";
 import { useNavigate } from "react-router-dom";
+import AuthService from "../../services/authservice";
 import './Register.css'
 
-const Register = (props) => {
+const Register = () => {
   const form = useRef();
   const checkBtn = useRef();
   const [id_company, setIdCompany] = useState("");
@@ -80,27 +80,24 @@ const Register = (props) => {
 
     form.current.validateAll();
 
-    if (checkBtn.current.context._errors.length === 0) {
-      AuthService.register(id_company, username, email, password).then(
-        (response) => {
-          setMessage(response.data.message);
-          setSuccessful(true);
-          navigate(`/login`);
-        },
-        (error) => {
-          const resMessage =
-            (error.response &&
-              error.response.data &&
-              error.response.data.message) ||
-            error.message ||
-            error.toString();
+  if (checkBtn.current.context._errors.length === 0) {
+    AuthService.register(id_company, username, email, password)
+    .then((response) => setMessage(response.data.message))
+    .then(setSuccessful(true))
+    .then(navigate('/login'))
+    .catch((error) => {
+      const resMessage =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
 
-          setMessage(resMessage);
-          setSuccessful(false);
-        }
-      );
-    }
-  };
+      setMessage(resMessage);
+      setSuccessful(false);
+    })  
+  }
+};
 
 
   return (

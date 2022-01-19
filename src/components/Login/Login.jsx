@@ -49,7 +49,7 @@ const Login = (props) => {
       AuthService.login(mail, password).then(
         () => {
           navigate(`/profile`);
-      
+
         },
         (error) => {
           const resMessage =
