@@ -1,0 +1,60 @@
+.question{
+    width: 80%;
+}
+
+.questionText{
+    color: #0070AD;
+    margin-bottom: 0.8rem;
+}
+
+.feedbackText{
+    color: #2A2B2A; 
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.feedbackText * {
+    padding: 0.4rem;
+}
+
+.answerResult{
+    color: #0070AD;
+    font-weight: bold;
+    text-align: initial;
+}
+
+.btnQuiz{
+    font-size: 1rem;
+    background-color: #F4F4F4;
+    color: #0070AD;
+    border: 1px solid #0070AD;
+    border-radius: 5px;
+    padding: 1rem 3rem;
+}
+
+.nxt{
+    height: 15%;
+}
+
+.mesgTxt{
+    display: flex;
+    text-align: initial;
+    align-items: center;
+}
+
+.mesgTxt *{
+    padding: 1rem;
+}
+
+.btnContaier{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btnContaier * {
+    margin: 0.5rem 0;
+}

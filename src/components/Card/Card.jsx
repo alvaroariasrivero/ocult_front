@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import {questionContext} from '../../context/questionContext';
 import { useNavigate } from "react-router-dom";
 import AuthService from '../../services/authservice';
-import axios from 'axios';
+import './Card.css';
 
 const Card = ({question}) => {
 
@@ -53,16 +53,24 @@ const Card = ({question}) => {
   const renderNextButton = () => {
     if(showButton){
       if(positive){
-        return <div>
+        return <div className="feedbackText">
+                <div className="answerResult">
                 <p>Respuesta correcta:</p>
+                </div>
+                <div className="mesgTxt">
                 <p>{affirmative_message}</p>
-                <button onClick={handleNextQuestion}>Siguiente pregunta</button>
+                <button className="btnQuiz nxt" onClick={handleNextQuestion}>Siguiente</button>
+                </div>
               </div>
       }else{
-        return <div>
+        return <div className="feedbackText">
+                <div className="answerResult">
                 <p>Respuesta incorrecta:</p>
+                </div>
+                <div className="mesgTxt">
                 <p>{negative_message}</p>
-                <button onClick={handleNextQuestion}>Siguiente pregunta</button>
+                <button className="btnQuiz nxt" onClick={handleNextQuestion}>Siguiente</button>
+                </div>
               </div>
       }
     }
@@ -87,7 +95,7 @@ const Card = ({question}) => {
                 <a href="https://transparencyreport.google.com/safe-browsing/search?hl=es" target="_blank">Google - Estado del sitio según Navegación segura</a>
               </div>
               <div>
-                <button onClick={()=>sendScore(score, userEmail)}>Enviar puntuación</button>
+                <button className="btnQuiz" onClick={()=>sendScore(score, userEmail)}>Enviar puntuación</button>
               </div>
             </div>
       }else{
@@ -108,26 +116,38 @@ const Card = ({question}) => {
                 <a href="https://transparencyreport.google.com/safe-browsing/search?hl=es">Google - Estado del sitio según Navegación segura</a>
               </div>
               <div>
-                <button onClick={()=> sendScore(score, userEmail)}>Enviar puntuación</button>
+                <button className="btnQuiz" onClick={()=> sendScore(score, userEmail)}>Enviar puntuación</button>
                 <button>Obtener certificado</button>
               </div>
             </div>
       }
     }
   if(answers.length === 3){
-    return <div>
-          <p>{question_text}</p>
-          <button onClick={() => selectAnswer(answers[threeItemsList[0]].iscorrect)}>{answers[threeItemsList[0]].answer_text}</button>
-          <button onClick={() => selectAnswer(answers[threeItemsList[1]].iscorrect)}>{answers[threeItemsList[1]].answer_text}</button>
-          <button onClick={() => selectAnswer(answers[threeItemsList[2]].iscorrect)}>{answers[threeItemsList[2]].answer_text}</button>
+    return <div className="question">
+          <div>
+          <p className="questionText">{question_text}</p>
+          <div className="btnContaier">
+          <button className="btnQuiz" onClick={() => selectAnswer(answers[threeItemsList[0]].iscorrect)}>{answers[threeItemsList[0]].answer_text}</button>
+          <button className="btnQuiz" onClick={() => selectAnswer(answers[threeItemsList[1]].iscorrect)}>{answers[threeItemsList[1]].answer_text}</button>
+          <button className="btnQuiz" onClick={() => selectAnswer(answers[threeItemsList[2]].iscorrect)}>{answers[threeItemsList[2]].answer_text}</button>
+          </div>
+          </div>
+          <div>
           {renderNextButton()}
           </div>
+          </div>
   }else{
-    return <div>
-          <p>{question_text}</p>
-          <button onClick={() => selectAnswer(answers[twoItemsList[0]].iscorrect)}>{answers[twoItemsList[0]].answer_text}</button>
-          <button onClick={() => selectAnswer(answers[twoItemsList[1]].iscorrect)}>{answers[twoItemsList[1]].answer_text}</button>
+    return <div className="question">
+          <div>
+          <p className="questionText">{question_text}</p>
+          <div className="btnContaier">
+          <button className="btnQuiz" onClick={() => selectAnswer(answers[twoItemsList[0]].iscorrect)}>{answers[twoItemsList[0]].answer_text}</button>
+          <button className="btnQuiz" onClick={() => selectAnswer(answers[twoItemsList[1]].iscorrect)}>{answers[twoItemsList[1]].answer_text}</button>
+          </div>
+          </div>
+          <div>
           {renderNextButton()}
+          </div>
           </div>
   };
 };
