@@ -42,13 +42,12 @@ const Chatbot = () => {
       <ul className="aside">
         <li><img src="../assets/icons/aside_dashboard.png" alt="icon" /><NavLink to='/profile'>Inicio</NavLink></li>
         <li><img src="../assets/icons/aside_support.png" alt="icon" /><NavLink to='/placeholder'>Recursos</NavLink></li>
-        {/* <li><img src="../assets/icons/aside_notification.png" alt="icon" /><NavLink to='/placeholder'>Chatbot</NavLink></li> */}
         <li><img src="../assets/icons/aside_notification.png" alt="icon" /><NavLink to='/placeholder'>Configuración</NavLink></li>
         <li><img src="../assets/icons/aside_notification.png" alt="icon" /><NavLink to='/placeholder'>Ayuda</NavLink></li>
       </ul>
     </aside>
     <div className="div_chatbot"></div>
-      <ChatBot steps={steps} theme={theme}/>;
+      <ChatBot steps={steps} theme={theme}/>
       </div>
 }
 

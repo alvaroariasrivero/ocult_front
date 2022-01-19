@@ -5,9 +5,9 @@ import CheckButton from "react-validation/build/button";
 import AuthService from "../../services/authservice";
 import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
-import './Login.css'
+import './../Login/Login.css'
 
-const Login = (props) => {
+const Loginadmin = (props) => {
 
   const form = useRef();
   const checkBtn = useRef();
@@ -73,8 +73,7 @@ const Login = (props) => {
       <img src="../assets/icons/LogoLightOcult.png" alt="logoOcult" className='logoForm' />
 
       <Form onSubmit={handleSubmit} ref={form} className="formItself">
-      <h2>Empleado</h2>
-
+        <h2>Responsable</h2>
         <div className="form-group">
           <label htmlFor="mail">Email</label>
           <Input
@@ -111,10 +110,9 @@ const Login = (props) => {
           </div>
         )}
         <CheckButton style={{ display: "none" }} ref={checkBtn} className="btn" />
-        <Link to="/register">¿No tienes cuenta? Registrate</Link>
       </Form>
 
     </div>
   </div>
 }
-export default Login;
+export default Loginadmin;

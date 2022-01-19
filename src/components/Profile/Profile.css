@@ -27,7 +27,7 @@ ul.aside > li{
     justify-content: flex-start;
 }
 
-a{
+a.aside{
     margin-left: 10%;
 }
 
@@ -37,12 +37,32 @@ a{
     justify-content: space-around;
 }
 
+div.rowOne{
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 1200px;
+}
+div.rowtwo{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 1200px;
+}
+div.rowThree{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 1200px;
+}
+
+
 .userImg{
     width: 96px;
     height: 96px;
     left: 640px;
     top: 186px;
-    background: url("../../../public/assets/icons/user_avatar.png"), #FFFFFF;
     box-shadow: 0px 15px 40px 5px #EDEDED;
     border-radius: 179px;
     background-position: center;
@@ -50,7 +70,7 @@ a{
 
 .userData {
     width: 467px;
-    height: 173px;
+    height: 233px;
     left: 612px;
     top: 147px;
     background: #FFFFFF;
@@ -84,8 +104,8 @@ img.recomendation{
 }
 
 .userGraph {
-    width: 1200px;
-    height: 293px;
+    width: 1000px;
+    height: 253px;
     left: 606px;
     top: 348px;
     background: #FFFFFF;
@@ -141,4 +161,40 @@ img.quiz{
     box-shadow: 0px 15px 40px 5px #EDEDED;
     border-radius: 8px;
     margin-bottom: 30px;
+}
+
+
+@media only screen and (max-width: 1260px) {
+    ul.aside > li{
+        list-style: none;
+        margin-bottom: 17%;
+        padding-top: 10%;
+        width: 171px;
+        left: 213px;
+        top: 147px;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    div.rowOne{
+        width: 500px;
+        height:auto;
+    }
+    div.rowtwo{
+        width: 500px;
+        height:auto;
+    }
+    div.rowThree{
+        width: 500px;
+        height:auto;
+    }
+    .userGraph {
+        width: 600px;
+        height:auto;
+    }
+    .userData, .userGraph, .userBot{
+        margin-bottom: 20px;
+    }
 }
