@@ -4,7 +4,6 @@
     Height: 100vh;
 }
 
-
 .div_form{
    display: flex;
    justify-content: center;
@@ -12,7 +11,7 @@
    align-items: center;
 }
 
-#form {
+.formItself {
     background-color: white;
     align-items: center;
     border: 1px grey;
@@ -28,7 +27,7 @@
     border-radius: 16px;
 }
 
-.input {
+.form-control {
     border-radius: 4px;
     padding: 6px;
     color:rgb(117, 115, 115);
@@ -36,16 +35,18 @@
     
 }
 
-.access_btn{
+.btn{
     background-color:#0070AD ;
     color: white;
-    width: 100%;
+    width: 70%;
     height: 2.5em;
     border-radius: 8px;
+    margin-top:50px;
+
 }
 
 .idinfo{
-    font-size: .6em;
+    font-size: 0.9em;
 }
 
 .logoForm{
@@ -55,4 +56,8 @@
     top: 246px;
     margin-top: 20px;
 
+}
+
+.form-group{
+    margin-top:10px;
 }

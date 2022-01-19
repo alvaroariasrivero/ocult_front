@@ -1,0 +1,6 @@
+.div_container_prequiz {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+}
