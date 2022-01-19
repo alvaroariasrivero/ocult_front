@@ -1,9 +1,8 @@
 import React, { useContext, useState } from "react";
 import {questionContext} from '../../context/questionContext';
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import AuthService from '../../services/authservice';
-const API_URL = "http://localhost:5000/api/";
+import axios from 'axios';
 
 const Card = ({question}) => {
 

@@ -11,7 +11,7 @@ const Profile = () => {
   const userScore = currentUser.userData.last_score
 
   const paintScore = () => {
-    console.log(userScore)
+    console.log('Esto es puntuación', userScore)
     if (userScore==null) {
        return <div>
         <img src="../assets/icons/user_recomendation.png" className="recomendation" alt="recomendation" />
