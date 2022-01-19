@@ -2,16 +2,30 @@ import React, { useState, useEffect } from "react";
 import './Profile.css'
 import { NavLink } from 'react-router-dom';
 import AuthService from "../../services/authservice";
-
+import axios from "axios";
 
 
 const Profile = () => {
-  const currentUser = AuthService.getCurrentUser();
-  console.log(currentUser)
-  const userScore = currentUser.userData.last_score
 
+  const [userScore, setUserScore] = useState();
+
+  const currentUser = AuthService.getCurrentUser();
+
+  useEffect(() => {
+    async function fetchUserScore() {
+    try{
+      const email = currentUser.userData.email
+      console.log(email);
+      const res = await axios.get(`http://localhost:5000/api/score/?email=${email}`)
+      .then(setUserScore(res))
+      } catch (e){
+        setUserScore("")  
+      } 
+      paintScore()
+  } fetchUserScore() 
+})
+  
   const paintScore = () => {
-    console.log('Esto es puntuación', userScore)
     if (userScore==null) {
        return <div>
         <img src="../assets/icons/user_recomendation.png" className="recomendation" alt="recomendation" />
@@ -55,7 +69,7 @@ const Profile = () => {
         </div>
         {/* Contenedor recomendación del quiz */}
         <div className="userRecomendation">
-        {paintScore()}
+        {paintScore}
         </div>
       </div>
 

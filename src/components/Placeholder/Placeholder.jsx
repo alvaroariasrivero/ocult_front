@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from 'react-router-dom';
 import AuthService from "../../services/authservice";
+import './Placeholder.css'
 
 const Placeholder = () => {
   return <div className="userDashboardContainer">
@@ -14,10 +15,14 @@ const Placeholder = () => {
         <li onClick={AuthService.logout}><img src="../assets/icons/aside/icon_cerrarses.png" alt="icon"/><NavLink to='/' className="aside">Cerrar Sesión</NavLink></li>
     </ul>
   </aside>
-      <div>
-        <h2>¡Vaya! ¡Lo sentimos!</h2>
-        <h1>Ocult está trabajando en esta funcionalidad para que muy pronto puedas disfrutar de ella. </h1>
-    <img src="../assets/icons/endesarrollo.png" alt="" srcset="" />
+      <div className="placeholderContainer">
+        <div className="sorryDiv">
+        <h2 className="sorry">¡Vaya! ¡Lo sentimos!</h2>
+        <h2 className="sorry working">Ocult está trabajando en esta funcionalidad para que muy pronto puedas disfrutar de ella. </h2>
+        </div>
+        <div>
+        <img src="../assets/icons/endesarrollo.png" alt="working" className="sorryImg"/>
+        </div>
       </div>
 
 

@@ -27,6 +27,7 @@ const login = async (mail, password) => {
 
 const logout = () => {
     localStorage.removeItem("user");
+    // localStorage.removeItem("score");
 };
 
 const getCurrentUser = () => {
