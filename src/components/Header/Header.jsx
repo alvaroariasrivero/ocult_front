@@ -7,7 +7,7 @@ const Header = () => {
 
   // Hacer condicional de usuario logeado para manejo de Nav 
   return <header>
-    <NavLink to='/'><img src="../assets/icons/LogoLightOcult.png" alt="logo" /></NavLink>
+    <NavLink to='/'><img src="../assets/icons/LogoLightOcult.png" alt="logo" className="logoHeader"/></NavLink>
 
     <Nav />
   </header>;
