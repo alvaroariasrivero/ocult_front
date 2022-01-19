@@ -84,7 +84,7 @@ const Card = ({question}) => {
               <h3>Test terminado.</h3>
               <div>
                 <p>Resultado</p>
-                <p>No apto</p>
+                <p>Apto</p>
               </div>
               <div>
                 <p>Puntuación</p>
