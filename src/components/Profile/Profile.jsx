@@ -1,33 +1,37 @@
 import React, { useState, useEffect } from "react";
 import './Profile.css'
 import { NavLink } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import AuthService from "../../services/authservice";
 
-import axios from "axios";
 
 
 const Profile = () => {
-  const [userData, setUserData] = useState({}); 
+  const currentUser = AuthService.getCurrentUser();
+  console.log(currentUser)
+  const userScore = currentUser.userData.last_score
 
-  // useEffect(() => {
-  // async function getUser() {
-  //   try {
-  //       axios.get('http://localhost:5000/api/profile/${user_id}').then((allData) => {
-  //         setUserData(allData.data)
-  //       })
-  //     }catch (e) {
-  //       setUserData([])
-  //     console.log("We had an error loading the data")
-  //   }
-  // }},[user_id])
-
+  const paintScore = () => {
+    console.log(userScore)
+    if ({userScore}!==null) {
+      return <p>Puntuación en último quiz: {currentUser.userData.last_score}</p>
+    } else {
+      return <div>
+        <img src="../assets/icons/user_recomendation.png" className="recomendation" alt="recomendation" />
+        <p>Tu administrador te recomienda la realización de un test</p>
+        <NavLink to="/quiz">Haz click aquí para comenzar</NavLink>
+      </div>
+    }
+  }
+  
   return <div className="userDashboardContainer">
     <aside className="asideNav">
       <ul className="aside">
-        <li><img src="../assets/icons/aside_support.png" alt="icon" /><NavLink to='/placeholder'>Recursos</NavLink></li>
-        <li><img src="../assets/icons/aside_notification.png" alt="icon" /><NavLink to='/chatbot'>Chatbot</NavLink></li>
-        <li><img src="../assets/icons/aside_notification.png" alt="icon" /><NavLink to='/placeholder'>Configuración</NavLink></li>
-        <li><img src="../assets/icons/aside_notification.png" alt="icon" /><NavLink to='/placeholder'>Ayuda</NavLink></li>
+        <li><img src="../assets/icons/aside_support.png" alt="icon" /><NavLink to='/placeholder' className="aside">Recursos</NavLink></li>
+        <li><img src="../assets/icons/aside_notification.png" alt="icon" /><NavLink to='/chatbot' className="aside">Chatbot</NavLink></li>
+        <li><img src="../assets/icons/aside_notification.png" alt="icon" /><NavLink to='/placeholder' className="aside">Configuración</NavLink></li>
+        <li><img src="../assets/icons/aside_notification.png" alt="icon" /><NavLink to='/placeholder' className="aside">Ayuda</NavLink></li>
+        <li onClick={AuthService.logout}><img src="../assets/icons/aside_notification.png" alt="icon"/><NavLink to='/' className="aside">Cerrar Sesión</NavLink></li>
+
       </ul>
     </aside>
     {/* Contenedor principal de las cajas del perfil */}
@@ -37,9 +41,10 @@ const Profile = () => {
       <div className="rowOne">
         {/* Contenedor datos de perfil */}
         <div className="userData">
-          <img className="userImg" />
+          <img className="userImg" src={currentUser.userData.image}/>
           <div className="userPersonalData">
-            <h2>Pablo Sans</h2>
+            <h2>{currentUser.userData.name}</h2>
+            <p>{currentUser.userData.email}</p>
             <p>Empresa: The Bridge</p>
             <p>PRINCIPIANTE</p>
             <img src="../assets/icons/user_level.png" alt="userLevel" />
@@ -47,9 +52,7 @@ const Profile = () => {
         </div>
         {/* Contenedor recomendación del quiz */}
         <div className="userRecomendation">
-          <img src="../assets/icons/user_recomendation.png" className="recomendation" alt="recomendation" />
-          <p>Tu administrador te recomienda la realización de un test</p>
-          <a>Haz click aquí para comenzar</a>
+        {paintScore()}
         </div>
       </div>
 
@@ -73,7 +76,7 @@ const Profile = () => {
           <p>¿Puedes comprobarme una URL? ¿Qué contraseña es más segura?</p>
           <p>Pregunta todas tus dudas a nuestro Chatbot</p>
           <img src="../assets/icons/bot_robot.png" className="robot" alt="ChatBot" />
-          <Link to="/chatbot">Haz click aquí para comenzar</Link>
+          <NavLink to="/chatbot">ACCEDE AQUI</NavLink>
 
         </div>
         {/* Contenedor listado Quizes*/}

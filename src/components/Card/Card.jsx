@@ -2,12 +2,17 @@ import React, { useContext, useState } from "react";
 import {questionContext} from '../../context/questionContext';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import AuthService from '../../services/authservice';
 
 const Card = ({question}) => {
 
   const {handleNextQuestion, showScore, questions, setShowButton, showButton, disabled, setDisabled, twoItemsList, threeItemsList, positive, setPositive} = useContext(questionContext)
   const {question_text, answers, affirmative_message, negative_message} = question;
   const[score, setScore] = useState(0);
+
+  const currentUser = AuthService.getCurrentUser();
+  const userEmail = currentUser.userData.email;
+  console.log('Esto es userEmail', userEmail);
 
   let navigate = useNavigate();
 

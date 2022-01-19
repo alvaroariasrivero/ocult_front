@@ -5,7 +5,7 @@ import CheckButton from "react-validation/build/button";
 import AuthService from "../../services/authservice";
 import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
-
+import './Login.css'
 
 const Login = (props) => {
 
@@ -32,7 +32,7 @@ const Login = (props) => {
     if (!value) {
       return (
         <div className="alert alert-danger" role="alert">
-          This field is required!
+          Por favor completa todos los campos!
         </div>
       );
     }
@@ -72,7 +72,9 @@ const Login = (props) => {
     <div className="div_form">
       <img src="../assets/icons/LogoLightOcult.png" alt="logoOcult" className='logoForm' />
 
-      <Form onSubmit={handleSubmit} ref={form}>
+      <Form onSubmit={handleSubmit} ref={form} className="formItself">
+      <h2>Empleado</h2>
+
         <div className="form-group">
           <label htmlFor="mail">Email</label>
           <Input
@@ -86,7 +88,7 @@ const Login = (props) => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password">Contraseña</label>
           <Input
             type="password"
             className="form-control"
@@ -98,7 +100,7 @@ const Login = (props) => {
         </div>
 
         <div className="form-group">
-          <button className="btn btn-primary btn-block">Login</button>
+          <button className="btn btn-primary btn-block">Acceder</button>
         </div>
 
         {message && (
@@ -108,8 +110,8 @@ const Login = (props) => {
             </div>
           </div>
         )}
-        <CheckButton style={{ display: "none" }} ref={checkBtn} />
-        <Link to="/register">¿No tienes cuenta? Regístrate</Link>
+        <CheckButton style={{ display: "none" }} ref={checkBtn} className="btn" />
+        <Link to="/register">¿No tienes cuenta? Registrate</Link>
       </Form>
 
     </div>

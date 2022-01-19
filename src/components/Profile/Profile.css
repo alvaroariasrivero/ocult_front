@@ -27,7 +27,7 @@ ul.aside > li{
     justify-content: flex-start;
 }
 
-a{
+a.aside{
     margin-left: 10%;
 }
 
@@ -63,7 +63,6 @@ div.rowThree{
     height: 96px;
     left: 640px;
     top: 186px;
-    background: url("../../../public/assets/icons/user_avatar.png"), #FFFFFF;
     box-shadow: 0px 15px 40px 5px #EDEDED;
     border-radius: 179px;
     background-position: center;
@@ -71,7 +70,7 @@ div.rowThree{
 
 .userData {
     width: 467px;
-    height: 173px;
+    height: 233px;
     left: 612px;
     top: 147px;
     background: #FFFFFF;

@@ -6,7 +6,6 @@ import CheckButton from "react-validation/build/button";
 import { isEmail } from "validator";
 import AuthService from "../../services/authservice";
 import { useNavigate } from "react-router-dom";
-
 import './Register.css'
 
 const Register = (props) => {
@@ -110,7 +109,7 @@ const Register = (props) => {
 
         <img src="../assets/icons/LogoLightOcult.png" alt="logoOcult" className='logoForm' />
 
-        <Form onSubmit={handleSubmit} ref={form}>
+        <Form onSubmit={handleSubmit} ref={form} className="formItself">
           {!successful && (
             <div>
               <div className="form-group">
@@ -126,7 +125,7 @@ const Register = (props) => {
               </div>
 
               <div className="form-group">
-                <label htmlFor="username">Username</label>
+                <label htmlFor="username">Nombre</label>
                 <Input
                   type="text"
                   className="form-control"
@@ -150,7 +149,7 @@ const Register = (props) => {
               </div>
 
               <div className="form-group">
-                <label htmlFor="password">Password</label>
+                <label htmlFor="password">Contraseña</label>
                 <Input
                   type="password"
                   className="form-control"
@@ -162,7 +161,7 @@ const Register = (props) => {
               </div>
 
               <div className="form-group">
-                <button className="btn btn-primary btn-block">Sign Up</button>
+                <button className="btn">Registro</button>
               </div>
             </div>
           )}
@@ -180,6 +179,7 @@ const Register = (props) => {
             </div>
           )}
           <CheckButton style={{ display: "none" }} ref={checkBtn} />
+          <p className='idinfo'>El id de tu empresa debe ser proporcionado por tu responsable</p>
         </Form>
       </div>
     </div>
