@@ -12,14 +12,14 @@ const Profile = () => {
 
   const paintScore = () => {
     console.log(userScore)
-    if ({userScore}!==null) {
-      return <p>Puntuación en último quiz: {currentUser.userData.last_score}</p>
-    } else {
-      return <div>
+    if (userScore==null) {
+       return <div>
         <img src="../assets/icons/user_recomendation.png" className="recomendation" alt="recomendation" />
         <p>Tu administrador te recomienda la realización de un test</p>
         <NavLink to="/quiz">Haz click aquí para comenzar</NavLink>
       </div>
+    } else {
+      return <p>Puntuación en último quiz: {currentUser.userData.last_score}</p>
     }
   }
   

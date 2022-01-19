@@ -22,6 +22,8 @@ const Main = () => {
     <Route path='/login' element={<Login/>}/>
     <Route path='/loginadmin' element={<Loginadmin/>}/>
     <Route path='/chatbot' element={<Chatbot/>}/>
+    <Route path='/dashboard' element={<Dashboard/>}/>
+    <Route path='/prequiz' element={<Prequiz/>}/>
   </Routes>;
 };
 

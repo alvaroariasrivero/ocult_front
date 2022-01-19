@@ -1,11 +1,20 @@
 import React, { useContext, useState } from "react";
 import {questionContext} from '../../context/questionContext';
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import AuthService from '../../services/authservice';
 
 const Card = ({question}) => {
 
   const {handleNextQuestion, showScore, questions, setShowButton, showButton, disabled, setDisabled, twoItemsList, threeItemsList, positive, setPositive} = useContext(questionContext)
   const {question_text, answers, affirmative_message, negative_message} = question;
   const[score, setScore] = useState(0);
+
+  const currentUser = AuthService.getCurrentUser();
+  const userEmail = currentUser.userData.email;
+  console.log('Esto es userEmail', userEmail);
+
+  let navigate = useNavigate();
 
   const selectAnswer = (iscorrect) => {
     if(!disabled){
@@ -16,6 +25,18 @@ const Card = ({question}) => {
       }
     }
     setShowButton(true)
+  }
+
+  const sendScore = async () => {
+    try {
+      let res = await axios.post('http://localhost:5000/api/score', score);
+      console.log('Entro', res)
+      let data = res.data;
+      console.log(data);
+      navigate('/profile');
+    } catch (error) {
+      console.log('error', error);
+    } 
   }
 
   const renderNextButton = () => {
@@ -36,7 +57,52 @@ const Card = ({question}) => {
     }
   }
 
-  if(showScore){return <div>Has obtenido {score}/{questions.length}</div>}
+  if(showScore){
+    if(score < questions.length/2){
+      return <div>
+              <h3>Test terminado.</h3>
+              <div>
+                <p>Resultado</p>
+                <p>No apto</p>
+              </div>
+              <div>
+                <p>Puntuación</p>
+                <p>{score}/{questions.length}</p>
+              </div>
+              <div>
+                <h5>Enlaces de interés:</h5>
+                <a href="https://ciberprotector.com/comprobador-de-contrase%C3%B1as/" target="_blank">Ciberprotector - Comprobador de contraseñas</a>
+                <a href="https://www.virustotal.com/gui/home/upload" target="_blank">Virus total - Analizador de archivos</a>
+                <a href="https://transparencyreport.google.com/safe-browsing/search?hl=es" target="_blank">Google - Estado del sitio según Navegación segura</a>
+              </div>
+              <div>
+                <button onClick={sendScore}>Enviar puntuación</button>
+              </div>
+            </div>
+      }else{
+        return <div>
+              <h3>Test terminado.</h3>
+              <div>
+                <p>Resultado</p>
+                <p>Apto</p>
+              </div>
+              <div>
+                <p>Puntuación</p>
+                <p>{score}/{questions.length}</p>
+              </div>
+              <div>
+                <h5>Enlaces de interés:</h5>
+                <a href="https://ciberprotector.com/comprobador-de-contrase%C3%B1as/">Ciberprotector - Comprobador de contraseñas</a>
+                <a href="https://www.virustotal.com/gui/home/upload">Virus total - Analizador de archivos</a>
+                <a href="https://transparencyreport.google.com/safe-browsing/search?hl=es">Google - Estado del sitio según Navegación segura</a>
+              </div>
+              <div>
+                <button onClick={sendScore}>Enviar puntuación</button>
+                <button>Obtener certificado</button>
+              </div>
+            </div>
+      }
+    }
   if(answers.length === 3){
     return <div>
           <p>{question_text}</p>
