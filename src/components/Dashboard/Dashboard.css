@@ -43,8 +43,8 @@ table {
     min-width: 100%;
     margin: 3% 10%;
     grid-template-columns: 
-      minmax(350px, 1fr)
-      minmax(350px, 1.67fr)
+      minmax(250px, 1fr)
+      minmax(250px, 1.67fr)
   }
   
   thead,

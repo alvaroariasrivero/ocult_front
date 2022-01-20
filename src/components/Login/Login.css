@@ -11,15 +11,14 @@
    align-items: center;
 }
 
-.formItself {
+.loginFormItself {
     background-color: white;
     align-items: center;
     border: 1px grey;
     border-radius: 16px ;
     padding: 15px 30px 30px 15px;
     margin-top: 20px;
-    width: 402px;
-    height: 457px;
+    width: 60%;
     left: 759px;
     top: 320px;
     background: #FFFFFF;
@@ -38,7 +37,7 @@
 .btn{
     background-color:#0070AD ;
     color: white;
-    width: 70%;
+    width: 20%;
     height: 2.5em;
     border-radius: 8px;
     margin-top:50px;

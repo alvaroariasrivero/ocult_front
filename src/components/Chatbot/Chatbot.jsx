@@ -48,9 +48,12 @@ const Chatbot = () => {
         <li onClick={AuthService.logout}><img src="../assets/icons/aside/icon_cerrarses.png" alt="icon"/><NavLink to='/' className="aside">Cerrar Sesión</NavLink></li>
       </ul>
     </aside>
-    <div className="div_chatbot"></div>
+    <div className="chatbotDiv">
+    <div className="div_chatbot">
       <ChatBot steps={steps} theme={theme}/>
       </div>
+      </div>
+    </div>
 }
 
 

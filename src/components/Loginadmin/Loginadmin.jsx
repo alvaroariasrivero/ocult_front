@@ -71,7 +71,7 @@ const Loginadmin = (props) => {
     <div className="div_form">
       <img src="../assets/icons/LogoLightOcult.png" alt="logoOcult" className='logoForm' />
 
-      <Form onSubmit={handleSubmit} ref={form} className="formItself">
+      <Form onSubmit={handleSubmit} ref={form} className="loginFormItself">
         <h2>Responsable</h2>
         <div className="form-group">
           <label htmlFor="mail">Email</label>

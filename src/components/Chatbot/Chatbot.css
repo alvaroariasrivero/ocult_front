@@ -3,12 +3,12 @@
     justify-content: flex-start;
 }
 
-.div_chatbot{
+.chatbotDiv{
     display: flex;
     justify-content: space-around;
     flex-direction: row;
     flex-wrap: nowrap;
     align-content: center;
     align-items: flex-start;
-   
+    width: 95%;
 }

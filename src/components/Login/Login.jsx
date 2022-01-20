@@ -73,7 +73,7 @@ const Login = (props) => {
     <div className="div_form">
       <img src="../assets/icons/LogoLightOcult.png" alt="logoOcult" className='logoForm' />
 
-      <Form onSubmit={handleSubmit} ref={form} className="formItself">
+      <Form onSubmit={handleSubmit} ref={form} className="loginFormItself">
       <h2>Empleado</h2>
 
         <div className="form-group">
@@ -101,7 +101,7 @@ const Login = (props) => {
         </div>
 
         <div className="form-group">
-          <button className="btn btn-primary btn-block">Acceder</button>
+          <button className="btn">Acceder</button>
         </div>
 
         {message && (
