@@ -83,7 +83,7 @@ const Register = () => {
 
   useEffect(() => {
     loadCaptchaEnginge(6);
-  });
+  },[]);
 
 
   const onChangeIdCompany = (e) => {
