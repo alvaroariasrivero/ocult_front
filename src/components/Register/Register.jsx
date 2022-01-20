@@ -178,11 +178,6 @@ const Register = () => {
 
               <p className='idinfo'>El id de tu empresa debe ser proporcionado por tu responsable</p>
               <div className="form-group">
-                <button className="btn">Registro</button>
-              </div>
-            </div>
-          )}
-
           <div>
             <LoadCanvasTemplate />
           </div>
@@ -205,6 +200,11 @@ const Register = () => {
 
 
           <CheckButton style={{ display: "none" }} ref={checkBtn} />
+                <button className="btn">Registro</button>
+              </div>
+            </div>
+          )}
+
 
         </Form>
       </div>
