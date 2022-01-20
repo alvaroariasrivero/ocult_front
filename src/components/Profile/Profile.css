@@ -2,25 +2,24 @@
 .userDashboardContainer{
     background-color: #E5E5E5;
     display:flex;
-    justify-content: flex-start;
 }
 
 /* Lateral menu */
 .asideNav{
     height: 100vh;
     padding:0;
-    margin: 0;
+    margin: 0; 
+}
+
+aside a{
     color: #696F79  
 }
 
 ul.aside > li{
     list-style: none;
-    margin-bottom: 17%;
-    padding-top: 10%;
-    width: 271px;
-    height: 44px;
-    left: 313px;
-    top: 147px;
+    margin-bottom: 1.5rem;
+    padding-top: 1rem;
+    width: 20%;
     border-radius: 16px;
     display: flex;
     align-items: center;
@@ -28,121 +27,157 @@ ul.aside > li{
 }
 
 a.aside{
-    margin-left: 10%;
+    margin-left: 0.5rem;
 }
 
 .userDashboardData{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 div.rowOne{
     margin-top: 10px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    width: 1200px;
+    justify-content: space-between;
+    margin-left: 3rem;
+    margin-right: 3rem;
 }
-div.rowtwo{
+div.rowTwo{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    width: 1200px;
+    /* justify-content: space-around; */
+    width: 100%px;
+    margin-left: 3rem;
+    padding: 0.5rem;
 }
 div.rowThree{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    width: 1200px;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-left: 3rem;
+    padding: 0.5rem;
+    margin-bottom: 2rem;
 }
 
 
 .userImg{
-    width: 96px;
-    height: 96px;
-    left: 640px;
-    top: 186px;
-    box-shadow: 0px 15px 40px 5px #EDEDED;
+    width: 6rem;
+    height: 6rem;
+    /* left: 640px; */
+    /* top: 186px; */
+    /* box-shadow: 0px 15px 40px 5px #ededed; */
     border-radius: 179px;
-    background-position: center;
+    /* background-position: center; */
+    padding: 0.5rem;
 }
 
 .userData {
-    width: 467px;
-    height: 233px;
-    left: 612px;
-    top: 147px;
+    width: 40%;
+    height: 78%;
     background: #FFFFFF;
     box-shadow: 0px 15px 40px 5px #EDEDED;
     border-radius: 16px;
     display: flex;
-    justify-content: space-around;
+    height: 90%;
+}
 
+.progress{
+    width: 80%;
 }
 
 .userPersonalData{
  text-align: left;
+ padding: 1rem;
+ color: #2A2B2A;
 }
 
 .userRecomendation {
-    width: 497px;
-    height: 173px;
-    left: 1107px;
-    top: 146px;
+    width: 40%;
+    color: white;
+}
+.userScoreToDo{
     background: #0070AD;
     box-shadow: 0px 15px 40px 5px #EDEDED;
     border-radius: 16px;
-    color: white;
+}
+
+.userScoreGood{
+    background: #18C3AE;
+    box-shadow: 0px 15px 40px 5px #ededed;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    padding: 0.5rem;
+}
+
+.userScoreBad{
+    background: #FF928E;
+    box-shadow: 0px 15px 40px 5px #EDEDED;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    padding: 0.5rem;
 }
 
 img.recomendation{
-    left: 59.11%;
-    right: 35.89%;
-    top: 18.16%;
-    bottom: 72.46%;
+    width: 20%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .userGraph {
-    width: 1000px;
-    height: 253px;
-    left: 606px;
-    top: 348px;
     background: #FFFFFF;
-    box-shadow: 0px 15px 40px 5px #EDEDED;
+    box-shadow: 0px 15px 40px 5px #ededed;
     border-radius: 16px;
+    color: #2A2B2A;
+    height: 100%;
+    padding: 0 0.5rem;
 }
 
 img.userGraph{
-    width: 142px;
-    height: 200px;
+    width: 4.43rem;
+    height: 6.25rem;
     left: 638px;
-    top: 436px;
-    margin-left: 18px;
 }
 
 
 .userBot {
-    width: 480px;
-    height: 309px;
-    left: 609px;
-    top: 669px;
+    color: #2A2B2A;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background: #DCEEF9;
     border: 1px solid #BEE8FF;
-    box-sizing: border-box;
-    box-shadow: 0px 15px 40px 5px #EDEDED;
+    box-shadow: 0px 15px 40px 5px #ededed;
     border-radius: 16px;
+    padding: 1rem;
+    height: 65%;
+}
+
+.robot{
+    width: 15%;
+}
+
+.userBot *{
+    padding: 0.2rem;
 }
 
 
-.userQuizes {
-    width: 497px;
-    height: 309px;
-    left: 1107px;
-    top: 669px; 
+.userQuizes { 
     background: #FFFFFF;
-    box-shadow: 0px 15px 40px 5px #EDEDED;
-    border-radius: 16px;   
+    box-shadow: 0px 15px 40px 5px #ededed;
+    border-radius: 16px; 
+}
+
+.userQuizes *{
+    padding: 0.2rem;
 }
 
 .quizes {
@@ -153,14 +188,23 @@ img.userGraph{
     align-content: space-between;
 }
 
+.imgatkcontainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.imgatck{
+    display: flex;
+    flex-direction: column-reverse;
+}
+
 img.quiz{
-    width: 212px;
-    height: 102px;
-    left: 1136px;
-    top: 732px;
-    box-shadow: 0px 15px 40px 5px #EDEDED;
+    width: 9rem;
+    height: 5rem;
+    /* left: 1136px; */
+    /* top: 732px; */
+    box-shadow: 0px 15px 40px 5px #ededed;
     border-radius: 8px;
-    margin-bottom: 30px;
 }
 
 
