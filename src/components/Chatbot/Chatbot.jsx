@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ChatBot from 'react-simple-chatbot';
 import { NavLink } from 'react-router-dom';
 import './Chatbot.css';
+import AuthService from "../../services/authservice";
 
 
 
@@ -40,10 +41,11 @@ const Chatbot = () => {
     return <div className="chatbotContainer">
       <aside className="asideNav">
       <ul className="aside">
-        <li><img src="../assets/icons/aside_dashboard.png" alt="icon" /><NavLink to='/profile'>Inicio</NavLink></li>
-        <li><img src="../assets/icons/aside_support.png" alt="icon" /><NavLink to='/placeholder'>Recursos</NavLink></li>
-        <li><img src="../assets/icons/aside_notification.png" alt="icon" /><NavLink to='/placeholder'>Configuración</NavLink></li>
-        <li><img src="../assets/icons/aside_notification.png" alt="icon" /><NavLink to='/placeholder'>Ayuda</NavLink></li>
+      <li><img src="../assets/icons/aside/icon_home.png" alt="icon" /><NavLink to='/profile' className="aside">Inicio</NavLink></li>
+      <li><img src="../assets/icons/aside/icon_recursos.png" alt="icon" /><NavLink to='/placeholder' className="aside">Recursos</NavLink></li>
+        <li><img src="../assets/icons/aside/icon_configuracion.png" alt="icon" /><NavLink to='/placeholder' className="aside">Configuración</NavLink></li>
+        <li><img src="../assets/icons/aside/icon_ayuda.png" alt="icon" /><NavLink to='/placeholder' className="aside">Ayuda</NavLink></li>
+        <li onClick={AuthService.logout}><img src="../assets/icons/aside/icon_cerrarses.png" alt="icon"/><NavLink to='/' className="aside">Cerrar Sesión</NavLink></li>
       </ul>
     </aside>
     <div className="div_chatbot"></div>

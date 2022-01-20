@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import {questionContext} from '../../context/questionContext';
 import { useNavigate } from "react-router-dom";
 import AuthService from '../../services/authservice';
-import axios from 'axios';
+import './Card.css';
 
 const Card = ({question}) => {
 
@@ -10,6 +10,7 @@ const Card = ({question}) => {
   const {question_text, answers, affirmative_message, negative_message} = question;
   const[score, setScore] = useState(0);
 
+  const questionLength = questions.length
   const currentUser = AuthService.getCurrentUser();
   const userEmail = currentUser.userData.email;
   console.log('Esto es userEmail', userEmail);
@@ -29,7 +30,7 @@ const Card = ({question}) => {
 
 
 
-  const sendScore = async (score, userEmail) => {
+  const sendScore = async (score, userEmail, questionLength) => {
     try {
       let req = {
         method: "POST",
@@ -38,7 +39,8 @@ const Card = ({question}) => {
         },
         body: JSON.stringify({
           score,
-          userEmail
+          userEmail,
+          questionLength
         })
       }
       await fetch ('http://localhost:5000/api/score', req);
@@ -53,16 +55,24 @@ const Card = ({question}) => {
   const renderNextButton = () => {
     if(showButton){
       if(positive){
-        return <div>
+        return <div className="feedbackText">
+                <div className="answerResult">
                 <p>Respuesta correcta:</p>
-                <p>{affirmative_message}</p>
-                <button onClick={handleNextQuestion}>Siguiente pregunta</button>
+                </div>
+                <div className="mesgTxt">
+                <p className="msgp">{affirmative_message}</p>
+                <button className="btnQuiz nxt" onClick={handleNextQuestion}>Siguiente</button>
+                </div>
               </div>
       }else{
-        return <div>
+        return <div className="feedbackText">
+                <div className="answerResult">
                 <p>Respuesta incorrecta:</p>
-                <p>{negative_message}</p>
-                <button onClick={handleNextQuestion}>Siguiente pregunta</button>
+                </div>
+                <div className="mesgTxt">
+                <p className="msgp">{negative_message}</p>
+                <button className="btnQuiz nxt" onClick={handleNextQuestion}>Siguiente</button>
+                </div>
               </div>
       }
     }
@@ -70,64 +80,79 @@ const Card = ({question}) => {
 
   if(showScore){
     if(score < questions.length/2){
-      return <div>
-              <h3>Test terminado.</h3>
+      return <div className="finalDiv">
+              <h3 className="resultHeader">Test terminado.</h3>
+              <div className="qresults">
               <div>
-                <p>Resultado</p>
-                <p>No apto</p>
+                <p className="greyText">Resultado</p>
+                <p className="greyText blueback">No apto</p>
               </div>
               <div>
-                <p>Puntuación</p>
-                <p>{score}/{questions.length}</p>
+                <p className="greyText">Puntuación</p>
+                <p className="greyText blueback">{score}/{questions.length}</p>
+              </div>
+              </div>
+              <div className="toKnowMore">
+                <h5 className="interest">Enlaces de interés:</h5>
+                <a className="knowledge" href="https://ciberprotector.com/comprobador-de-contrase%C3%B1as/" target="_blank">Ciberprotector - Comprobador de contraseñas</a>
+                <a className="knowledge" href="https://www.virustotal.com/gui/home/upload" target="_blank">Virus total - Analizador de archivos</a>
+                <a className="knowledge" href="https://transparencyreport.google.com/safe-browsing/search?hl=es" target="_blank">Google - Estado del sitio según Navegación segura</a>
               </div>
               <div>
-                <h5>Enlaces de interés:</h5>
-                <a href="https://ciberprotector.com/comprobador-de-contrase%C3%B1as/" target="_blank">Ciberprotector - Comprobador de contraseñas</a>
-                <a href="https://www.virustotal.com/gui/home/upload" target="_blank">Virus total - Analizador de archivos</a>
-                <a href="https://transparencyreport.google.com/safe-browsing/search?hl=es" target="_blank">Google - Estado del sitio según Navegación segura</a>
-              </div>
-              <div>
-                <button onClick={()=>sendScore(score, userEmail)}>Enviar puntuación</button>
+                <button className="btnQuiz"  onClick={()=>sendScore(score, userEmail, questionLength)}>Enviar puntuación</button>
               </div>
             </div>
       }else{
-        return <div>
-              <h3>Test terminado.</h3>
+        return <div className="finalDiv">
+              <h3 className="resultHeader">Test terminado.</h3>
+              <div className="qresults">
               <div>
-                <p>Resultado</p>
-                <p>Apto</p>
+                <p className="greyText">Resultado</p>
+                <p className="greyText blueback">Apto</p>
               </div>
               <div>
-                <p>Puntuación</p>
-                <p>{score}/{questions.length}</p>
+                <p className="greyText">Puntuación</p>
+                <p className="greyText blueback">{score}/{questions.length}</p>
+              </div>
+              </div>
+              <div className="toKnowMore">
+                <h5 className="interest">Enlaces de interés:</h5>
+                <a className="knowledge" href="https://ciberprotector.com/comprobador-de-contrase%C3%B1as/" target="_blank">Ciberprotector - Comprobador de contraseñas</a>
+                <a className="knowledge" href="https://www.virustotal.com/gui/home/upload" target="_blank">Virus total - Analizador de archivos</a>
+                <a className="knowledge" href="https://transparencyreport.google.com/safe-browsing/search?hl=es" target="_blank">Google - Estado del sitio según Navegación segura</a>
               </div>
               <div>
-                <h5>Enlaces de interés:</h5>
-                <a href="https://ciberprotector.com/comprobador-de-contrase%C3%B1as/">Ciberprotector - Comprobador de contraseñas</a>
-                <a href="https://www.virustotal.com/gui/home/upload">Virus total - Analizador de archivos</a>
-                <a href="https://transparencyreport.google.com/safe-browsing/search?hl=es">Google - Estado del sitio según Navegación segura</a>
-              </div>
-              <div>
-                <button onClick={()=> sendScore(score, userEmail)}>Enviar puntuación</button>
-                <button>Obtener certificado</button>
+                <button className="btnQuiz"  onClick={()=> sendScore(score, userEmail, questionLength)}>Enviar puntuación</button>
               </div>
             </div>
       }
     }
   if(answers.length === 3){
-    return <div>
-          <p>{question_text}</p>
-          <button onClick={() => selectAnswer(answers[threeItemsList[0]].iscorrect)}>{answers[threeItemsList[0]].answer_text}</button>
-          <button onClick={() => selectAnswer(answers[threeItemsList[1]].iscorrect)}>{answers[threeItemsList[1]].answer_text}</button>
-          <button onClick={() => selectAnswer(answers[threeItemsList[2]].iscorrect)}>{answers[threeItemsList[2]].answer_text}</button>
+    return <div className="question">
+          <div classname="qContainer">
+          <p className="questionText">{question_text}</p>
+          <div className="btnContaier">
+          <button className="btnQuiz" onClick={() => selectAnswer(answers[threeItemsList[0]].iscorrect)}>{answers[threeItemsList[0]].answer_text}</button>
+          <button className="btnQuiz" onClick={() => selectAnswer(answers[threeItemsList[1]].iscorrect)}>{answers[threeItemsList[1]].answer_text}</button>
+          <button className="btnQuiz" onClick={() => selectAnswer(answers[threeItemsList[2]].iscorrect)}>{answers[threeItemsList[2]].answer_text}</button>
+          </div>
+          </div>
+          <div className="aContainer">
           {renderNextButton()}
           </div>
+          </div>
   }else{
-    return <div>
-          <p>{question_text}</p>
-          <button onClick={() => selectAnswer(answers[twoItemsList[0]].iscorrect)}>{answers[twoItemsList[0]].answer_text}</button>
-          <button onClick={() => selectAnswer(answers[twoItemsList[1]].iscorrect)}>{answers[twoItemsList[1]].answer_text}</button>
+    return <div className="question">
+          <div classname="qContainer">
+          <p className="questionText">{question_text}</p>
+          <div className="btnContaier">
+          <button className="btnQuiz" onClick={() => selectAnswer(answers[twoItemsList[0]].iscorrect)}>{answers[twoItemsList[0]].answer_text}</button>
+          <button className="btnQuiz" onClick={() => selectAnswer(answers[twoItemsList[1]].iscorrect)}>{answers[twoItemsList[1]].answer_text}</button>
+          </div>
+          </div>
+          <div className="aContainer">
           {renderNextButton()}
+          </div>
           </div>
   };
 };

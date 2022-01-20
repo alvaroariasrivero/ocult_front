@@ -19,7 +19,7 @@
     padding: 15px 30px 30px 15px;
     margin-top: 20px;
     width: 402px;
-    height: 457px;
+    height: 557px;
     left: 759px;
     top: 320px;
     background: #FFFFFF;
@@ -60,4 +60,8 @@
 
 .form-group{
     margin-top:10px;
+}
+
+div.alert{
+    color: red;
 }

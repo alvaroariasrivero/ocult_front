@@ -1,11 +1,13 @@
 // Import de validaciones del Form 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import { isEmail } from "validator";
 import { useNavigate } from "react-router-dom";
 import AuthService from "../../services/authservice";
+import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
+
 import './Register.css'
 
 const Register = () => {
@@ -28,7 +30,36 @@ const Register = () => {
         </div>
       );
     }
-  };
+  }
+
+  const validateCaptchaF = () => {
+    let user_captcha = document.getElementById('user_captcha_input').value;
+    if (validateCaptcha(user_captcha) == true) {
+      console.log('Captcha Matched');
+      if (checkBtn.current.context._errors.length === 0) {
+        AuthService.register(id_company, username, email, password)
+          .then((response) => setMessage(response.data.message))
+          .then(setSuccessful(true))
+          .then(navigate('/login'))
+          .catch((error) => {
+            const resMessage =
+              (error.response &&
+                error.response.data &&
+                error.response.data.message) ||
+              error.message ||
+              error.toString();
+
+            setMessage(resMessage);
+            setSuccessful(false);
+          })
+      }
+    }
+    else {
+      alert('Captcha incorrecto');
+      document.getElementById('user_captcha_input').value = "";
+    }
+  }
+
 
   const validEmail = (value) => {
     if (!isEmail(value)) {
@@ -49,6 +80,11 @@ const Register = () => {
       );
     }
   };
+
+  useEffect(() => {
+    loadCaptchaEnginge(6);
+  },[]);
+
 
   const onChangeIdCompany = (e) => {
     const id_company = e.target.value;
@@ -79,25 +115,8 @@ const Register = () => {
     setSuccessful(false);
 
     form.current.validateAll();
-
-  if (checkBtn.current.context._errors.length === 0) {
-    AuthService.register(id_company, username, email, password)
-    .then((response) => setMessage(response.data.message))
-    .then(setSuccessful(true))
-    .then(navigate('/login'))
-    .catch((error) => {
-      const resMessage =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString();
-
-      setMessage(resMessage);
-      setSuccessful(false);
-    })  
-  }
-};
+    validateCaptchaF()
+  };
 
 
   return (
@@ -157,12 +176,20 @@ const Register = () => {
                 />
               </div>
 
+              <p className='idinfo'>El id de tu empresa debe ser proporcionado por tu responsable</p>
               <div className="form-group">
                 <button className="btn">Registro</button>
               </div>
             </div>
           )}
 
+          <div>
+            <LoadCanvasTemplate />
+          </div>
+          <div className="col mt-3">
+            <div><input placeholder="Enter Captcha Value" id="user_captcha_input" name="user_captcha_input" type="text"></input></div>
+          </div>
+          
           {message && (
             <div className="form-group">
               <div
@@ -175,8 +202,10 @@ const Register = () => {
               </div>
             </div>
           )}
+
+
           <CheckButton style={{ display: "none" }} ref={checkBtn} />
-          <p className='idinfo'>El id de tu empresa debe ser proporcionado por tu responsable</p>
+
         </Form>
       </div>
     </div>

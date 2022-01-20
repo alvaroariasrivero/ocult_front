@@ -90,10 +90,25 @@ div.rowThree{
     height: 173px;
     left: 1107px;
     top: 146px;
+    
+    color: white;
+}
+.userScoreToDo{
     background: #0070AD;
     box-shadow: 0px 15px 40px 5px #EDEDED;
     border-radius: 16px;
-    color: white;
+}
+
+.userScoreGood{
+    background: #18C3AE;
+    box-shadow: 0px 15px 40px 5px #EDEDED;
+    border-radius: 16px;
+}
+
+.userScoreBad{
+    background: #FF928E;
+    box-shadow: 0px 15px 40px 5px #EDEDED;
+    border-radius: 16px;
 }
 
 img.recomendation{
@@ -115,7 +130,7 @@ img.recomendation{
 
 img.userGraph{
     width: 142px;
-    height: 177px;
+    height: 200px;
     left: 638px;
     top: 436px;
     margin-left: 18px;

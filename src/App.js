@@ -24,7 +24,6 @@ function App() {
       try {
         const res = await axios.get('http://localhost:5000/api/questions');
         const json = res.data;
-        console.log('Esto es jason', json)
         const questionsArray = json.map(element => {
           if(element.answers.length === 3){
             return{
@@ -49,7 +48,6 @@ function App() {
             }
           };
         })
-        console.log('Esto es questionsArray', questionsArray);
         setQuestions(questionsArray)
       } catch (error){
         console.log('error', error);
