@@ -1,0 +1,5 @@
+.userDashboardContainer{
+    display: flex;
+    flex-direction: column;
+    color:#0070AD ;
+}
