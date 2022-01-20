@@ -1,12 +1,18 @@
+.container_home{
+    display: flex;
+    flex-direction: column;
+}
+
+.div_title1{
+    flex-direction: row;
+}
 h1.title{ 
     width: 827px;
     height: 330px;
-    left: 80px;
-    top: 200px;
     font-family: Roboto;
     font-style: normal;
     font-weight: 800;
-    font-size: 100px;
+    font-size: 5rem;
     line-height: 110.3%;
     color: #0070AD;
 }
