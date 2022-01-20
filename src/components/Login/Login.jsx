@@ -113,7 +113,6 @@ const Login = (props) => {
         )}
         <CheckButton style={{ display: "none" }} ref={checkBtn} className="btn" />
         <Link to="/register">¿No tienes cuenta? Regístrate</Link>
-
       </Form>
 
     </div>
