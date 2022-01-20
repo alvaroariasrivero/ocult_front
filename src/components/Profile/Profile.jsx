@@ -33,7 +33,7 @@ const Profile = () => {
       return <div className="userScoreToDo">
         <img src="../assets/icons/user_recomendation.png" className="recomendation" alt="recomendation" />
         <p>Tu administrador te recomienda la realización de un test</p>
-        <NavLink to="/quiz">Haz click aquí para comenzar</NavLink>
+        <NavLink to="/prequiz">Haz click aquí para comenzar</NavLink>
       </div>
     } else {
       if (userScore >= userQuestions/2) {
