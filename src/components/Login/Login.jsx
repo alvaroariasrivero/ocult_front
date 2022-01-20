@@ -5,6 +5,7 @@ import CheckButton from "react-validation/build/button";
 import AuthService from "../../services/authservice";
 import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
+
 import './Login.css'
 
 const Login = (props) => {
@@ -112,6 +113,7 @@ const Login = (props) => {
         )}
         <CheckButton style={{ display: "none" }} ref={checkBtn} className="btn" />
         <Link to="/register">¿No tienes cuenta? Regístrate</Link>
+
       </Form>
 
     </div>

@@ -8,39 +8,49 @@ import axios from "axios";
 const Profile = () => {
 
   const [userScore, setUserScore] = useState();
+  const [userQuestions, setUserQuestions] = useState();
 
   const currentUser = AuthService.getCurrentUser();
+  const email = currentUser.userData.email
 
   useEffect(() => {
     async function fetchUserScore() {
-    try{
-      const email = currentUser.userData.email
-      console.log(email);
-      const res = await axios.get(`http://localhost:5000/api/score/?email=${email}`)
-      .then(setUserScore(res))
-      } catch (e){
-        setUserScore("")  
-      } 
-      paintScore()
-  } fetchUserScore() 
-})
-  
+      try {
+        const res = await axios.get(`http://localhost:5000/api/score?email=${email}`)
+        const lastScore = res.data[0].last_score
+        const lastQuestions = res.data[0].last_quiz_questions
+        setUserScore(lastScore)
+        setUserQuestions(lastQuestions)
+      } catch (e) {
+        setUserScore("")
+        setUserQuestions("")
+      }
+    } fetchUserScore()
+  }, [])
+
   const paintScore = () => {
-    if (userScore==null) {
-       return <div>
+    if (userScore == null) {
+      return <div className="userScoreToDo">
         <img src="../assets/icons/user_recomendation.png" className="recomendation" alt="recomendation" />
         <p>Tu administrador te recomienda la realización de un test</p>
         <NavLink to="/quiz">Haz click aquí para comenzar</NavLink>
       </div>
     } else {
-      return <>
-      <img src="../assets/icons/user_recomendation.png" className="recomendation" alt="recomendation" />
-      <p>Puntuación en último quiz: {currentUser.userData.last_score}</p>
-      <p>Obtén aquí tu certificado</p>
-      </>
+      if (userScore >= userQuestions/2) {
+        return <div className="userScoreGood">
+          <img src="../assets/icons/user_recomendation.png" className="recomendation" alt="recomendation" />
+          <p>Puntuación en último quiz: {userScore}</p>
+          <p>Pronto recibirás tu certificado por email</p>
+        </div>
+      } else {
+        return <div className="userScoreBad">
+          <img src="../assets/icons/user_recomendation.png" className="recomendation" alt="recomendation" />
+          <p>Puntuación en último quiz: {userScore}</p>
+        </div>
+      }
     }
   }
-  
+
   return <div className="userDashboardContainer">
     <aside className="asideNav">
       <ul className="aside">
@@ -48,7 +58,7 @@ const Profile = () => {
         <li><img src="../assets/icons/aside/icon_chatbot.png" alt="icon" /><NavLink to='/chatbot' className="aside">Chatbot</NavLink></li>
         <li><img src="../assets/icons/aside/icon_configuracion.png" alt="icon" /><NavLink to='/placeholder' className="aside">Configuración</NavLink></li>
         <li><img src="../assets/icons/aside/icon_ayuda.png" alt="icon" /><NavLink to='/placeholder' className="aside">Ayuda</NavLink></li>
-        <li onClick={AuthService.logout}><img src="../assets/icons/aside/icon_cerrarses.png" alt="icon"/><NavLink to='/' className="aside">Cerrar Sesión</NavLink></li>
+        <li onClick={AuthService.logout}><img src="../assets/icons/aside/icon_cerrarses.png" alt="icon" /><NavLink to='/' className="aside">Cerrar Sesión</NavLink></li>
       </ul>
     </aside>
     {/* Contenedor principal de las cajas del perfil */}
@@ -58,7 +68,7 @@ const Profile = () => {
       <div className="rowOne">
         {/* Contenedor datos de perfil */}
         <div className="userData">
-          <img className="userImg" src={currentUser.userData.image}/>
+          <img className="userImg" src={currentUser.userData.image} />
           <div className="userPersonalData">
             <h2>{currentUser.userData.name}</h2>
             <p>{currentUser.userData.email}</p>
@@ -69,7 +79,9 @@ const Profile = () => {
         </div>
         {/* Contenedor recomendación del quiz */}
         <div className="userRecomendation">
-        {paintScore}
+          <>
+            {paintScore()}
+          </>
         </div>
       </div>
 
@@ -94,7 +106,7 @@ const Profile = () => {
           <p>¿Puedes comprobarme una URL? ¿Qué contraseña es más segura?</p>
           <p>Pregunta todas tus dudas a nuestro Chatbot</p>
           <img src="../assets/icons/bot_robot.png" className="robot" alt="ChatBot" />
-          <button><NavLink to="/chatbot">ACCEDE AQUI</NavLink></button> 
+          <button><NavLink to="/chatbot">ACCEDE AQUI</NavLink></button>
 
         </div>
         {/* Contenedor listado Quizes*/}

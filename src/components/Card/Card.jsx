@@ -9,6 +9,7 @@ const Card = ({question}) => {
   const {question_text, answers, affirmative_message, negative_message} = question;
   const[score, setScore] = useState(0);
 
+  const questionLength = questions.length
   const currentUser = AuthService.getCurrentUser();
   const userEmail = currentUser.userData.email;
   console.log('Esto es userEmail', userEmail);
@@ -28,7 +29,7 @@ const Card = ({question}) => {
 
 
 
-  const sendScore = async (score, userEmail) => {
+  const sendScore = async (score, userEmail, questionLength) => {
     try {
       let req = {
         method: "POST",
@@ -37,7 +38,8 @@ const Card = ({question}) => {
         },
         body: JSON.stringify({
           score,
-          userEmail
+          userEmail,
+          questionLength
         })
       }
       await fetch ('http://localhost:5000/api/score', req);
@@ -86,7 +88,7 @@ const Card = ({question}) => {
                 <a href="https://transparencyreport.google.com/safe-browsing/search?hl=es" target="_blank">Google - Estado del sitio según Navegación segura</a>
               </div>
               <div>
-                <button onClick={()=>sendScore(score, userEmail)}>Enviar puntuación</button>
+                <button onClick={()=>sendScore(score, userEmail, questionLength)}>Enviar puntuación</button>
               </div>
             </div>
       }else{
@@ -107,7 +109,7 @@ const Card = ({question}) => {
                 <a href="https://transparencyreport.google.com/safe-browsing/search?hl=es">Google - Estado del sitio según Navegación segura</a>
               </div>
               <div>
-                <button onClick={()=> sendScore(score, userEmail)}>Enviar puntuación</button>
+                <button onClick={()=> sendScore(score, userEmail, questionLength)}>Enviar puntuación</button>
                 <button>Obtener certificado</button>
               </div>
             </div>

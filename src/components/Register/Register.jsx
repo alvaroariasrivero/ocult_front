@@ -183,6 +183,13 @@ const Register = () => {
             </div>
           )}
 
+          <div>
+            <LoadCanvasTemplate />
+          </div>
+          <div className="col mt-3">
+            <div><input placeholder="Enter Captcha Value" id="user_captcha_input" name="user_captcha_input" type="text"></input></div>
+          </div>
+          
           {message && (
             <div className="form-group">
               <div
@@ -196,12 +203,6 @@ const Register = () => {
             </div>
           )}
 
-          <div>
-            <LoadCanvasTemplate />
-          </div>
-          <div className="col mt-3">
-            <div><input placeholder="Enter Captcha Value" id="user_captcha_input" name="user_captcha_input" type="text"></input></div>
-          </div>
 
           <CheckButton style={{ display: "none" }} ref={checkBtn} />
 
