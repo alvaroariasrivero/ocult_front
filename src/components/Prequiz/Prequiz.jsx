@@ -1,8 +1,8 @@
 import React from 'react';
 import './Prequiz.css';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import AuthService from "../../services/authservice";
- 
+
 
 const Prequiz = () =>{
 
@@ -13,30 +13,34 @@ const Prequiz = () =>{
 
   return <div className='div_container_prequiz'>
     <div className='div_welcome_prequiz'>
-      <p>Hola {name}</p> 
-      <p>vas a comenzar un test.</p>
-      <p>Antes de empezar, recuerda:</p>
+      <p className='p_intro'>Hola {name},</p> 
+      <p className='p_intro'>vas a comenzar un test.</p>
+      <p className='p_intro'>Antes de empezar, recuerda:</p>
     </div>
     
-    <div className='div_text_prequiz'>
-      <img className='img_prequiz' src='../assets/icons/Question.png'/>
-      <p>¡No olvides responder a todas las preguntas! </p> 
+    <div className='div_text_prequiz_container'>
+      <div className='div_text_prequiz'>
+        <img className='img_prequiz' src='../assets/icons/Question.png' />
+        <p>¡No olvides responder a todas las preguntas! </p>
+      </div>
+      <div className='div_text_prequiz'>
+        <img className='img_prequiz' src='../assets/icons/oneway.png' />
+        <p>Lamentablemente, no podrás vover a atrás.</p>
+      </div>
+      <div className='div_text_prequiz'>
+        <img className='img_prequiz' src='../assets/icons/thumbs.png' />
+        <p>En cada pregunta, echa un buen ojo al feedback.</p>
+      </div>
     </div>
-    <div className='div_text_prequiz'>
-      <img className='img_prequiz' src='../assets/icons/oneway.png'/>
-      <p>Lamentablemente, no podrás vover a atrás.</p>
-    </div>
-    <div className='div_text_prequiz'>
-      <img className='img_prequiz' src='../assets/icons/thumbs.png'/>
-      <p>En cada pregunta, echa un buen ojo al feedback.</p>
-    </div>
+    
 
     {/* <div className='div_imag_prequiz'>
       <img src='../assets/icons/candadobackground.png'/>
     </div> */}
-    <button className='btn_prequiz'> <NavLink to="/quiz">Accede al test</NavLink> </button>
-    <button className='btn_prequiz'><NavLink to="/profile">Dejar para más tarde</NavLink></button>
-
+    <div className='div_btn' >
+      <button className='btn_prequiz'> <Link to="/quiz">Acceder</Link> </button>
+      <button className='btn_prequiz'><Link to="/profile">Postponer</Link></button>
+    </div>
   </div>
 
 };
