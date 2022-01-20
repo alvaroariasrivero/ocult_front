@@ -74,7 +74,7 @@ const Profile = () => {
             <p>{currentUser.userData.email}</p>
             <p>Empresa: The Bridge</p>
             <p>PRINCIPIANTE</p>
-            <img src="../assets/icons/progressbar.png" alt="userLevel" />
+            <img className="progress" src="../assets/icons/progressbar.png" alt="userLevel" />
           </div>
         </div>
         {/* Contenedor recomendación del quiz */}
@@ -86,7 +86,7 @@ const Profile = () => {
       </div>
 
       {/* 2*/}
-      <div className="rowTow">
+      <div className="rowTwo">
         {/* Contenedor de la gráfica */}
         <div className="userGraph">
           <p>Tu nivel de conocimiento por áreas</p>
@@ -113,15 +113,26 @@ const Profile = () => {
         <div className="userQuizes">
           <p>Tus Quiz</p>
           <div className="quizes">
-
-            <img src="https://images.unsplash.com/photo-1592772874383-d08932d29db7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2440&q=80" className="quiz" alt="quiz" />
-            <p>Ciberataques</p>
-            <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" className="quiz" alt="quiz" />
-            <p>Pagos en Internet</p>
-            <img src="https://images.unsplash.com/photo-1617854818583-09e7f077a156?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" className="quiz" alt="quiz" />
-            <p>Urls</p>
-            <img src="https://images.unsplash.com/photo-1634224143538-ce0221abf732?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80" className="quiz" alt="quiz" />
-            <p>Contraseña</p>
+            <div className="imgatkcontainer">
+              <div className="imgatck">
+                <img src="https://images.unsplash.com/photo-1592772874383-d08932d29db7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2440&q=80" className="quiz" alt="quiz" />
+                <p>Ciberataques</p>
+              </div>
+              <div className="imgatck">
+                <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" className="quiz" alt="quiz" />
+                <p>Pagos en Internet</p>
+              </div>
+            </div>
+            <div className="imgatkcontainer">
+              <div className="imgatck">
+                <img src="https://images.unsplash.com/photo-1617854818583-09e7f077a156?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" className="quiz" alt="quiz" />
+                <p>Urls</p>
+              </div>
+              <div className="imgatck">
+                <img src="https://images.unsplash.com/photo-1634224143538-ce0221abf732?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80" className="quiz" alt="quiz" />
+                <p>Contraseña</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -3,7 +3,6 @@ import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import AuthService from "../../services/authservice";
-import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import './../Login/Login.css'
 
@@ -48,7 +47,7 @@ const Loginadmin = (props) => {
     if (checkBtn.current.context._errors.length === 0) {
       AuthService.login(mail, password).then(
         () => {
-          navigate(`/profile`);
+          navigate(`/dashboard`);
       
         },
         (error) => {
@@ -72,7 +71,7 @@ const Loginadmin = (props) => {
     <div className="div_form">
       <img src="../assets/icons/LogoLightOcult.png" alt="logoOcult" className='logoForm' />
 
-      <Form onSubmit={handleSubmit} ref={form} className="formItself">
+      <Form onSubmit={handleSubmit} ref={form} className="loginFormItself">
         <h2>Responsable</h2>
         <div className="form-group">
           <label htmlFor="mail">Email</label>

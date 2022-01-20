@@ -31,13 +31,58 @@ const Chatbot = () => {
     },
     {
       id: '3',
-      message: 'Voy a buscar toda la información necesaria para poder ayudarte. Dame un segundo!',
+      message: 'Voy a buscar toda la información necesaria para poder ayudarte. ¡Dame un segundo!',
+      end: false,
+      trigger: '4',
+    },
+    {
+      id: '4',
+      message: 'El Phishing es un ciberataque en el que se recibe un correo, mensaje u otra notificación con un enlace malicioso en el que se piden credenciales de acceso y al introducirlas son robadas.',
+      end: false,
+      trigger: '5',
+    },
+    {
+      id: '5',
+      message: 'Sabes cuales son los pasos esenciales para mantener la seguridad del sistema?',
+      trigger: '6',
+    },
+    {
+      id: '6',
+      options: [
+        { value: 1, label: 'Sí', trigger: '8' },
+        { value: 2, label: 'No', trigger: '7' },
+       ,
+      ],
+    },
+    {
+      id: '7',
+      message: '¡No hay problema! Te los digo yo: - Comprobar la url de redirección, - Comprobar el email emisor y - Asegurarse de que viene del dominio correcto.',
+      end: false,
+      trigger: '8',
+
+    },
+    {
+      id: '8',
+      message: '¿Hay algo mas en lo que pueda ayudarte?',
+      end: false,
+      trigger: '9',
+    },
+    {
+      id: '9',
+      options: [
+        { value: 1, label: 'Sí', trigger: '10' },
+        { value: 2, label: 'No', trigger: '10' },
+       ,
+      ],
+    },
+    {
+      id: '10',
+      message: 'Recuerda que Oculty está aqui para lo que necesites',
       end: true,
     },
     
   ];
-  
- 
+
     return <div className="chatbotContainer">
       <aside className="asideNav">
       <ul className="aside">
@@ -48,9 +93,12 @@ const Chatbot = () => {
         <li onClick={AuthService.logout}><img src="../assets/icons/aside/icon_cerrarses.png" alt="icon"/><NavLink to='/' className="aside">Cerrar Sesión</NavLink></li>
       </ul>
     </aside>
-    <div className="div_chatbot"></div>
+    <div className="chatbotDiv">
+    <div className="div_chatbot">
       <ChatBot steps={steps} theme={theme}/>
       </div>
+      </div>
+    </div>
 }
 
 

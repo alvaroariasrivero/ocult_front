@@ -4,7 +4,7 @@ header {
     border-bottom: 1px solid #e2e8f0;
     display: flex;
     background-color: #0070AD;
-    width: 100vw;
+    width: 100%;
 }
 
 .logoHeader {
