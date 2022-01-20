@@ -48,7 +48,7 @@ const Loginadmin = (props) => {
     if (checkBtn.current.context._errors.length === 0) {
       AuthService.login(mail, password).then(
         () => {
-          navigate(`/profile`);
+          navigate(`/dashboard`);
       
         },
         (error) => {
