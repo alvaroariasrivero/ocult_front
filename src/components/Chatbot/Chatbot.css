@@ -5,7 +5,10 @@
 
 .div_chatbot{
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: flex-start;
    
 }

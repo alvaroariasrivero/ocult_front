@@ -3,7 +3,6 @@ import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import AuthService from "../../services/authservice";
-import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import './../Login/Login.css'
 
