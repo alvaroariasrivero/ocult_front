@@ -1,5 +1,17 @@
 .userDashboardContainer{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     color:#0070AD ;
+}
+
+.userData {
+    width: 467px;
+    height: 233px;
+    left: 612px;
+    top: 147px;
+    background: #FFFFFF;
+    box-shadow: 0px 15px 40px 5px #beb9b9;
+    border-radius: 16px;
+    display: flex;
+    justify-content: space-around;
 }

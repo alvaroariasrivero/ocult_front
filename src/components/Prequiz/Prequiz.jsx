@@ -13,7 +13,7 @@ const Prequiz = () =>{
 
   return <div className='div_container_prequiz'>
     <div className='div_welcome_prequiz'>
-      <p className='p_intro'>Hola {name},</p> 
+      <p className='p_intro' style={{fontWeight: 'bold'}}>Hola {name},</p> 
       <p className='p_intro'>vas a comenzar un test.</p>
       <p className='p_intro'>Antes de empezar, recuerda:</p>
     </div>
