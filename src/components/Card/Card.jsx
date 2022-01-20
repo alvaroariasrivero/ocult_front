@@ -121,7 +121,6 @@ const Card = ({question}) => {
               </div>
               <div>
                 <button className="btnQuiz" onClick={()=> sendScore(score, userEmail)}>Enviar puntuación</button>
-                {/* <button>Obtener certificado</button> */}
               </div>
             </div>
       }
